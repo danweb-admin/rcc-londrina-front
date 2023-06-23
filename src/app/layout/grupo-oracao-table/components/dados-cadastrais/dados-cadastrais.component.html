@@ -1,0 +1,171 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card card-default">
+            <!-- /.card-body -->
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Nome do Grupo de Oração</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Paróquia</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Tipo</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option>Adolescente</option>
+                                <option>Adulto</option>
+                                <option>Jovem</option>
+                                <option>Misto</option>
+                              </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Dia da Semana</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option>Domingo</option>
+                                <option>Segunda</option>
+                                <option>Terça</option>
+                                <option>Quarta</option>
+                                <option>Quinta</option>
+                                <option>Sexta</option>
+                                <option>Sabado</option>
+                              </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Local</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Horário</label>
+                            <input type="text" mask="00:00" [validation]="true" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Data de Fundação</label>
+                            <input type="text" mask="d0/M0/0000" [leadZeroDateTime]="true" [validation]="true" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Endereço</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Bairro</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">CEP</label>
+                            <input type="text" mask="99999-999" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Site</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Telefone</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Cidade</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option>Londrina</option>
+                                <option>Ibiporã</option>
+                                <option>Cambé</option>
+                                <option>Rolândia</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Decanato/Setor</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option>Centro</option>
+                                <option>Sul</option>
+                                <option>Norte</option>
+                                <option>Leste</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Número de Partiipantes</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.card -->
+        <div class="card card-default">
+            <div class="card-header d-flex justify-content-between align-items-center">Histórico Coordenadores
+                <button type="button" class="btn btn-sm btn-primary">Add Mandato</button>
+            </div>
+            <!-- /.card-body -->
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                              <th scope="col">#</th>
+                              <th scope="col">CPF</th>
+                              <th scope="col">Nome</th>
+                              <th scope="col">Início Mandato</th>
+                              <th scope="col">Fim Mandato</th>
+                              <th scope="col">Situação</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>000.999.111-90</td>
+                                <td>Otto Martins</td>
+                                <td>01/01/2023</td>
+                                <td>31/12/2024</td>
+                                <td>Coord. Atual</td>
+                              </tr>
+                          </tbody>
+                    </table>
+                  </div>
+            </div>
+        </div>
+    </div>
+</div>

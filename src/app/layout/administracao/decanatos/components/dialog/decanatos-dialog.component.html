@@ -1,0 +1,30 @@
+<div class="modal-header">
+    <h4 *ngIf="isAddMode" class="modal-title">Adicionar Decanato/Setor</h4>
+    <h4 *ngIf="!isAddMode" class="modal-title">Atualizar Decanato/Setor</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+</div>
+<div class="modal-body">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <input type="hidden" formControlName="id">
+        <input type="hidden" formControlName="createdAt">
+        <input type="hidden" formControlName="updatedAt">
+        <div class="row">
+            <div class="col-lg-9">
+                <div class="form-group">
+                    <label>Nome</label>
+                    <input type="text" class="form-control" id="name" formControlName="name" >
+                </div>
+            </div>
+            <div class="col-lg-3 ">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" formControlName="active">
+                    <label class="form-check-label" >Ativo</label>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-danger" (click)="activeModal.close('sair')">Cancelar</button>
+    <button type="button" class="btn btn-primary" (click)="onSubmit()">Salvar</button>
+</div>

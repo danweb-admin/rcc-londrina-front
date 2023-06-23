@@ -1,0 +1,28 @@
+<ul ngbNav #nav="ngbNav" class="nav-tabs">
+    <li ngbNavItem>
+      <a ngbNavLink>Dados Cadastrais</a>
+      <ng-template ngbNavContent>
+        <app-dados-cadastrais></app-dados-cadastrais>
+      </ng-template>
+    </li>
+    <li ngbNavItem>
+        <a ngbNavLink>Servos</a>
+        <ng-template ngbNavContent>
+          <app-servos></app-servos>
+        </ng-template>
+    </li>
+    <li ngbNavItem>
+      <a ngbNavLink>Núcleo</a>
+      <ng-template ngbNavContent>
+          <app-nucleo></app-nucleo>
+      </ng-template>
+    </li>
+    <li ngbNavItem>
+        <a ngbNavLink>Ministérios</a>
+        <ng-template ngbNavContent>
+
+        </ng-template>
+    </li>
+  </ul>
+  <div [ngbNavOutlet]="nav"></div>
+
