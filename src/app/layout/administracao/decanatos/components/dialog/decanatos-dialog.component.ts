@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { DecanatoService } from '../../../../../shared/services/decanato.service';
 import { Decanato } from '../../../../../shared/models/decanato';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
     selector: 'app-decanatos-dialog',
@@ -17,7 +19,8 @@ import { Decanato } from '../../../../../shared/models/decanato';
     
     constructor(public activeModal: NgbActiveModal, 
                 private formBuilder: FormBuilder,
-                private decanatoService: DecanatoService) {
+                private decanatoService: DecanatoService,
+                private toastr: ToastrService) {
                 
         
     }
@@ -40,12 +43,20 @@ import { Decanato } from '../../../../../shared/models/decanato';
     onSubmit(){
         if (this.form.value.id === ""){
           this.decanatoService.save(this.form.value).subscribe((resp: Decanato) => {
-            
+            this.toastr.success('Decanato/Setor adicionado com sucesso.');
             this.activeModal.close(resp);
+          },
+          (error: any) =>{
+            console.log(error);
+            this.toastr.warning(error.error?.message)
           });
         } else {
           this.decanatoService.update(this.form.value).subscribe((resp: Decanato) => {
             this.activeModal.close(resp);
+          },
+          (error: any) =>{
+            console.log(error);
+            this.toastr.warning(error.error?.message)
           });
         }
     }

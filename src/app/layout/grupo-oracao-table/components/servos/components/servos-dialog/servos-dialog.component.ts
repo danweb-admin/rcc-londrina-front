@@ -9,6 +9,5 @@ import { ServosComponent } from '../../servos.component';
 })
 export class ServosDialogComponent  {
     constructor(public activeModal: NgbActiveModal) {
-        console.log('fnsonosnsons')
     }
 }

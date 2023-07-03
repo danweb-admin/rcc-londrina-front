@@ -12,6 +12,6 @@ import { InicioComponent } from './inicio.component';
         InicioRoutingModule, 
         PageHeaderModule, 
         NgbAccordionModule],
-    declarations: [InicioComponent]
+    declarations: []
 })
 export class InicioModule {}

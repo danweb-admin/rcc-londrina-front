@@ -3,6 +3,7 @@ import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
 import { routerTransition } from '../../router.animations';
 
 @Component({
+    standalone: true,
     selector: 'app-inicio',
     templateUrl: './inicio.component.html',
     styleUrls: ['./inicio.component.scss'],

@@ -1,0 +1,78 @@
+<div class="modal-header">
+    <h4 *ngIf="isAddMode" class="modal-title">Adicionar Paróquia/Capela</h4>
+    <h4 *ngIf="!isAddMode" class="modal-title">Atualizar Paróquia/Capela</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+</div>
+<div class="modal-body">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <input type="hidden" formControlName="id">
+        <input type="hidden" formControlName="createdAt">
+        <input type="hidden" formControlName="updatedAt">
+        <div class="row">
+            <div class="col-lg-7">
+                <div class="form-group">
+                    <label>Nome</label>
+                    <input type="text" class="form-control" id="name" oninput="this.value = this.value.toUpperCase()" maxlength="100" formControlName="name" >
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="form-group">
+                    <label>Decanato</label>
+                    <select class="form-control" formControlName="decanatoId" >
+                        <option *ngFor="let item of decanatos" 
+                            [value]="item.id">
+                        {{item.name}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input"  type="checkbox" formControlName="active">
+                    <label class="form-check-label" >Ativo</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label>Endereco</label>
+                    <input type="text" class="form-control" id="name" oninput="this.value = this.value.toUpperCase()" maxlength="100" formControlName="address" >
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="form-group">
+                    <label>Bairro</label>
+                    <input type="text" class="form-control" id="name" oninput="this.value = this.value.toUpperCase()" maxlength="50" formControlName="neighborhood" >
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="form-group">
+                    <label>Cidade</label>
+                    <select class="form-control" formControlName="city">
+                        <option>ALVORADA DO SUL</option>
+                        <option>BELA VISTA DO PARAÍSO</option>
+                        <option>CAMBÉ</option>
+                        <option>CENTENÁRIO DO SUL</option>
+                        <option>FLORESTÓPOLIS</option>
+                        <option>IBIPORÃ</option>
+                        <option>JAGUAPITÃ</option>
+                        <option>LONDRINA</option>
+                        <option>LUPIONÓPOLIS</option>
+                        <option>MIRASELVA</option>
+                        <option>PORECATU</option>
+                        <option>PRADO FERREIRA</option>
+                        <option>PRIMEIRO DE MAIO</option>
+                        <option>ROLÂNDIA</option>
+                        <option>SERTANÓPOLIS</option>
+                        <option>TAMARANA</option>
+                      </select>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-danger" (click)="activeModal.close('sair')">Cancelar</button>
+    <button type="button" class="btn btn-primary" (click)="onSubmit()" [disabled]="!form.valid">Salvar</button>
+</div>

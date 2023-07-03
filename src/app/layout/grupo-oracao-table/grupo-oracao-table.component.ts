@@ -7,7 +7,6 @@ import { routerTransition } from '../../router.animations';
     selector: 'app-grupo-oracao-table',
     templateUrl: './grupo-oracao-table.component.html',
     styleUrls: ['./grupo-oracao-table.component.scss'],
-    imports: [NgbAccordionModule],
     animations: [routerTransition()]
 })
 export class GrupoOracaoTableComponent implements OnInit {

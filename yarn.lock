@@ -165,7 +165,7 @@
     "uuid" "8.3.2"
     "yargs" "17.5.1"
 
-"@angular/common@^14.0.0 || ^15.0.0", "@angular/common@^14.1.0", "@angular/common@>=10.0.0", "@angular/common@>=11.0.0", "@angular/common@>=13.0.0", "@angular/common@14.2.8":
+"@angular/common@^14.0.0 || ^15.0.0", "@angular/common@^14.1.0", "@angular/common@>=10.0.0", "@angular/common@>=10.0.0-0", "@angular/common@>=11.0.0", "@angular/common@>=13.0.0", "@angular/common@14.2.8":
   "integrity" "sha512-JSPN2h1EcyWjHWtOzRQmoX48ZacTjLAYwW9ZRmBpYs6Ptw5xZ39ARTJfQNcNnJleqYju2E6BNkGnLpbtWQjNDA=="
   "resolved" "https://registry.npmjs.org/@angular/common/-/common-14.2.8.tgz"
   "version" "14.2.8"
@@ -200,7 +200,7 @@
   "resolved" "https://registry.npmjs.org/@angular/compiler/-/compiler-9.0.0.tgz"
   "version" "9.0.0"
 
-"@angular/core@^14.0.0 || ^15.0.0", "@angular/core@^14.1.0", "@angular/core@>=10.0.0", "@angular/core@>=11.0.0", "@angular/core@>=13.0.0", "@angular/core@14.2.8":
+"@angular/core@^14.0.0 || ^15.0.0", "@angular/core@^14.1.0", "@angular/core@>=10.0.0", "@angular/core@>=10.0.0-0", "@angular/core@>=11.0.0", "@angular/core@>=13.0.0", "@angular/core@14.2.8":
   "integrity" "sha512-cgnII9vJGJDLsfr7KsBfU2l+QQUmQIRIP3ImKhBxicw2IHKCSb2mYwoeLV46jaLyHyUMTLRHKUYUR4XtSPnb8A=="
   "resolved" "https://registry.npmjs.org/@angular/core/-/core-14.2.8.tgz"
   "version" "14.2.8"
@@ -247,7 +247,7 @@
   dependencies:
     "tslib" "^2.3.0"
 
-"@angular/platform-browser@^14.0.0 || ^15.0.0", "@angular/platform-browser@14.2.8":
+"@angular/platform-browser@^14.0.0 || ^15.0.0", "@angular/platform-browser@>=10.0.0-0", "@angular/platform-browser@14.2.8":
   "integrity" "sha512-tSASBLXoBE0/Gt6d2nC6BJ1DvbGY5wo2Lb+8WCLSvkfsgVqOh4uRuJ2a0wwjeLFd0ZNmpjG42Ijba4btmCpIjg=="
   "resolved" "https://registry.npmjs.org/@angular/platform-browser/-/platform-browser-14.2.8.tgz"
   "version" "14.2.8"
@@ -4948,6 +4948,13 @@
   dependencies:
     "tslib" "^2.1.0"
 
+"ngx-toastr@13.2.1":
+  "integrity" "sha512-UAzp7/xWK9IXA2LsOmhpaaIGCqscvJokoQpBNpAMrjEkDeSlFf8PWQAuQY795KW0mJb3qF9UG/s23nsXfMYKmg=="
+  "resolved" "https://registry.npmjs.org/ngx-toastr/-/ngx-toastr-13.2.1.tgz"
+  "version" "13.2.1"
+  dependencies:
+    "tslib" "^2.0.0"
+
 "nice-napi@^1.0.2":
   "integrity" "sha512-px/KnJAJZf5RuBGcfD+Sp2pAKq0ytz8j+1NehvgIGFkvtvFrDM3T8E4x/JJODXK9WZow8RRGrbA9QQ3hs+pDhA=="
   "resolved" "https://registry.npmjs.org/nice-napi/-/nice-napi-1.0.2.tgz"
@@ -6926,7 +6933,7 @@
   "resolved" "https://registry.npmjs.org/tslib/-/tslib-1.14.1.tgz"
   "version" "1.14.1"
 
-"tslib@^2.1.0", "tslib@^2.3.0", "tslib@2.4.1":
+"tslib@^2.0.0", "tslib@^2.1.0", "tslib@^2.3.0", "tslib@2.4.1":
   "integrity" "sha512-tGyy4dAjRIEwI7BzsB0lynWgOpfqjUdq91XXAlIWD2OwKBH7oCl/GZG/HT4BOHrTlPMOASlMQ7veyTqpmRcrNA=="
   "resolved" "https://registry.npmjs.org/tslib/-/tslib-2.4.1.tgz"
   "version" "2.4.1"
