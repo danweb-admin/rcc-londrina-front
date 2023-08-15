@@ -3,29 +3,29 @@
         <div class="col-md-4">
             <img class="user-avatar" src="assets/images/logo.png" width="150px" />
             <h1>Admin - Gerenciador RCC</h1>
-            <form role="form">
+            <form role="form" [formGroup]="form">
                 <div class="form-content">
                     <div class="form-group">
                         <input
-                            [placeholder]="'Email' | translate"
+                            [placeholder]="'Email'"
                             class="form-control input-underline input-lg"
-                            type="text"
+                            type="text" formControlName="email"
                         />
                     </div>
 
                     <div class="form-group">
                         <input
-                            [placeholder]="'Password' | translate"
+                            [placeholder]="'Password'"
                             class="form-control input-underline input-lg"
-                            type="password"
+                            type="password" formControlName="password"
                         />
                     </div>
                 </div>
-                <a (click)="onLoggedin()" [routerLink]="['/dashboard']" class="btn rounded-btn">{{
-                    'Entrar' | translate
+                <a (click)="onLoggedin()" class="btn rounded-btn">{{
+                    'Entrar'
                 }}</a>
                 &nbsp;
-                <a [routerLink]="['/signup']" class="btn rounded-btn">{{ 'Registrar' | translate }}</a>
+                <a [routerLink]="['/signup']" class="btn rounded-btn">{{ 'Registrar' }}</a>
                 
      
             </form>

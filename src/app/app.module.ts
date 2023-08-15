@@ -10,7 +10,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutModule } from './layout/layout.module';
 import { AuthGuard } from './shared';
-import { LanguageTranslationModule } from './shared/modules/language-translation/language-translation.module';
+import { InterceptorModule } from './shared/interceptor/interceptor.module';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { NgxSpinnerModule } from 'ngx-spinner';
+
 
 @NgModule({
     imports: [
@@ -20,15 +23,18 @@ import { LanguageTranslationModule } from './shared/modules/language-translation
         FormsModule,
         ReactiveFormsModule,
         HttpClientModule,
-        LanguageTranslationModule,
         AppRoutingModule,
+        InterceptorModule,
         LayoutModule,
+        MatProgressSpinnerModule,
+        NgxSpinnerModule,
         NgxMaskModule.forRoot(),
         ToastrModule.forRoot({
             preventDuplicates: true,
         }),
     ],
-    declarations: [AppComponent],
+    declarations: [AppComponent,
+    ],
     providers: [AuthGuard],
     bootstrap: [AppComponent]
 })

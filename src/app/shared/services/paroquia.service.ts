@@ -16,8 +16,9 @@ export class ParoquiaService {
 
   }
 
-  loadParoquias(ativo: boolean): Observable<Paroquia[]> {
-    return this.http.get(`${environment.URL_API}${URL_PAROQUIA}`)
+  loadParoquias(ativo: boolean, search: string): Observable<Paroquia[]> {
+    
+    return this.http.get(`${environment.URL_API}${URL_PAROQUIA}?search=${search}`)
     .pipe(map((resp: Paroquia[]) => {
       return resp;
     }));

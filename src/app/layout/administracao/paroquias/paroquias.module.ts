@@ -11,6 +11,8 @@ import { ParoquiasRoutingModule } from './paroquias-routiing.module';
 import { ParoquiasPageComponent } from './containers/paroquias-page.component';
 import { ParoquiasDialogComponent } from './components/dialog/paroquias-dialog.component';
 import { ParoquiasTableComponent } from './components/table/paroquias-table.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 @NgModule({
@@ -26,6 +28,8 @@ import { ParoquiasTableComponent } from './components/table/paroquias-table.comp
     MatToolbarModule,
     MatCardModule,
     MatTabsModule,
+    MatTableModule,
+    MatPaginatorModule,
     FormsModule,
     ReactiveFormsModule,
     NgxMaskModule.forChild(),

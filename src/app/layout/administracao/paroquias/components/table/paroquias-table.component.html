@@ -4,35 +4,58 @@
             <!-- /.card-header -->
             <div class="card-header">
                 <i class="fa fa-clock-o fa-fw"></i>Lista de Paróquias/Capelas
-                <button class="btn" (click)="openDialog(null)"><i class="fa fa-plus"></i></button>
             </div>
+            <div class="row">
+              <div class="paroquia-table-wrapper__search" >
+                <div class="paroquia-table-wrapper__icon-wrapper">
+                  <i class="fa fa-fw fa-search"></i>&nbsp;
+                </div>
+                <input class="paroquia-table-wrapper__search-input" #inputSearch (keyup)="applyFilter($event)">
+                <button class="btn"><i class="fa fa-close" (click)="closeFilterInput()"></i></button>
+                <button class="btn" (click)="openDialog(null)"><i class="fa fa-plus"></i></button>
+              </div>
+            </div>
+            
             
             <!-- /.card-body -->
             <div class="card-body">
                 <div class="row">
+                  <table class="client-table__table" mat-table [dataSource]="dataSource">
+                    <ng-container matColumnDef="nome" >
+                      <th class="client-table__table-header" mat-header-cell *matHeaderCellDef > Nome </th>
+                      <td class="client-table__table-body" mat-cell *matCellDef="let element"> {{element.name}} </td>
+                    </ng-container>
+      
+                    <ng-container matColumnDef="cidade" >
+                      <th class="client-table__table-header" mat-header-cell *matHeaderCellDef > Cidade </th>
+                      <td class="client-table__table-body" mat-cell *matCellDef="let element"> {{element.city}} </td>
+                    </ng-container>
+      
+                    <ng-container matColumnDef="bairro" >
+                      <th class="client-table__table-header" mat-header-cell *matHeaderCellDef > Bairro </th>
+                      <td class="client-table__table-body" mat-cell *matCellDef="let element"> {{element.neighborhood}} </td>
+                    </ng-container>
+      
+                    <ng-container matColumnDef="decanato" >
+                      <th class="client-table__table-header" mat-header-cell *matHeaderCellDef > Decanato </th>
+                      <td class="client-table__table-body" mat-cell *matCellDef="let element"> {{element.decanatoSetor?.name}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="ativo" >
+                      <th class="client-table__table-header" mat-header-cell *matHeaderCellDef > Ativo </th>
+                      <td class="client-table__table-body" mat-cell *matCellDef="let element"> {{element.active == true ? 'SIM' : 'NÃO'}} </td>
+                    </ng-container>
+      
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+                    (click)="openDialog(row)">
+                    </tr>
+                  </table>
+
                     
                 </div>
-                <div class="row">
-                    <table class="table">
-                        <thead>
-                          <tr>
-                            <th scope="col">Nome</th>
-                            <th scope="col">Cidade</th>
-                            <th scope="col">Bairro</th>
-                            <th scope="col">Decanato</th>
-                            <th scope="col">Ativo</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr *ngFor="let item of dataSource" (click)="openDialog(item)" >
-                            <td>{{item.name}}</td>
-                            <td>{{item.city}}</td>
-                            <td>{{item.neighborhood}}</td>
-                            <td>{{item.decanatoSetor.name}}</td>
-                            <td>{{item.active ? 'Sim' : 'Não'}}</td>
-                          </tr>
-                        </tbody>
-                      </table>
+                <div class="pagination">
+                  <mat-paginator [pageSizeOptions]="[10, 15, 100]" showFirstLastButtons></mat-paginator>
                 </div>
             </div>
         </div>

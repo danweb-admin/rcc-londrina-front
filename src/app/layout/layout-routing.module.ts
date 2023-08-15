@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from '../shared';
 import { LayoutComponent } from './layout.component';
 
 const routes: Routes = [
@@ -10,7 +11,7 @@ const routes: Routes = [
             { path: '', redirectTo: 'dashboard', pathMatch: 'prefix' },
             {
                 path: 'dashboard',
-                loadChildren: () => import('./dashboard/dashboard.module').then((m) => m.DashboardModule)
+                loadChildren: () => import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
             },
             {
                 path: 'blank-page',
@@ -22,15 +23,20 @@ const routes: Routes = [
             },
             {
                 path: 'grupo-oracao',
-                loadChildren: () => import('./grupo-oracao-table/grupo-oracao-table.module').then((m) => m.GrupoOracaoTableModule)
+                loadChildren: () => import('./grupo-oracao-table/grupo-oracao-table.module').then((m) => m.GrupoOracaoTableModule),
+                canActivate: [AuthGuard]
+
             },
             {
                 path: 'decanatos',
-                loadChildren: () => import('./administracao/decanatos/decanatos.module').then((m) => m.DecanatosModule)
+                loadChildren: () => import('./administracao/decanatos/decanatos.module').then((m) => m.DecanatosModule),
+                canActivate: [AuthGuard]
+
             },
             {
                 path: 'paroquias',
-                loadChildren: () => import('./administracao/paroquias/paroquias.module').then((m) => m.ParoquiasModule)
+                loadChildren: () => import('./administracao/paroquias/paroquias.module').then((m) => m.ParoquiasModule),
+                canActivate: [AuthGuard]
             }
         ]
     }
