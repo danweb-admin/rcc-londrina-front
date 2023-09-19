@@ -3,143 +3,162 @@
         <div class="card card-default">
             <!-- /.card-body -->
             <div class="card-body">
-                <div class="row">
-                    <div class="col-lg-3">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Nome do Grupo de Oração</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                    <input type="hidden" formControlName="id">
+                    <input type="hidden" formControlName="createdAt">
+                    <input type="hidden" formControlName="updatedAt">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Nome do Grupo de Oração</label>
+                                <input type="text" class="form-control" oninput="this.value = this.value.toUpperCase()" formControlName="name" >
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Tipo</label>
+                                <select class="form-control" formControlName="type">
+                                    <option value="adolescente">ADOLESCENTE</option>
+                                    <option value="adulto">ADULTO</option>
+                                    <option value="jovem">JOVEM</option>
+                                    <option value="misto">MISTO</option>
+                                  </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Dia da Semana</label>
+                                <select class="form-control" formControlName="dayOfWeek">
+                                    <option value="sunday">Domingo</option>
+                                    <option value="monday">Segunda</option>
+                                    <option value="tuesday">Terça</option>
+                                    <option value="wednesday">Quarta</option>
+                                    <option value="thursday">Quinta</option>
+                                    <option value="friday">Sexta</option>
+                                    <option value="saturday">Sabado</option>
+                                  </select>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-3">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Paróquia</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Paróquia</label>
+                                <select class="form-control" formControlName="paroquiaId" (change)="onChange($event.target.value)">
+                                    <option *ngFor="let item of paroquias" 
+                                        [value]="item.id" >
+                                    {{item.name }} - {{item.decanatoSetor?.name}} - {{item.city}}
+                                    </option>
+                                </select>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-3">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Tipo</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
-                                <option>Adolescente</option>
-                                <option>Adulto</option>
-                                <option>Jovem</option>
-                                <option>Misto</option>
-                              </select>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Local</label>
+                                <input type="text" class="form-control" oninput="this.value = this.value.toUpperCase()" formControlName="local" >
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Horário</label>
+                                <input type="text" mask="00:00" [validation]="true" class="form-control" formControlName="time1"  >
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Data de Fundação</label>
+                                <input type="text" mask="d0/M0/0000" [specialCharacters]="[ '/' ]"  class="form-control" formControlName="foundationDate1" >
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-3">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Dia da Semana</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
-                                <option>Domingo</option>
-                                <option>Segunda</option>
-                                <option>Terça</option>
-                                <option>Quarta</option>
-                                <option>Quinta</option>
-                                <option>Sexta</option>
-                                <option>Sabado</option>
-                              </select>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Endereço</label>
+                                <input type="text" class="form-control" oninput="this.value = this.value.toUpperCase()" formControlName="address" #address >
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Bairro</label>
+                                <input type="text" class="form-control" oninput="this.value = this.value.toUpperCase()" formControlName="neighborhood"  #neighborhood>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">CEP</label>
+                                <input type="text" mask="99999-999" class="form-control" formControlName="zipCode" #zipCode>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Local</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email</label>
+                                <input type="text" class="form-control" formControlName="email" >
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Site</label>
+                                <input type="text" class="form-control" formControlName="site">
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Telefone</label>
+                                <input type="text" class="form-control" formControlName="telephone" mask="(00) 0000-0000">
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-3">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Horário</label>
-                            <input type="text" mask="00:00" [validation]="true" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Cidade</label>
+                                <select class="form-control" formControlName="city" #city>
+                                    <option>ALVORADA DO SUL</option>
+                                    <option>BELA VISTA DO PARAÍSO</option>
+                                    <option>CAMBÉ</option>
+                                    <option>CENTENÁRIO DO SUL</option>
+                                    <option>FLORESTÓPOLIS</option>
+                                    <option>IBIPORÃ</option>
+                                    <option>JAGUAPITÃ</option>
+                                    <option>LONDRINA</option>
+                                    <option>LUPIONÓPOLIS</option>
+                                    <option>MIRASELVA</option>
+                                    <option>PORECATU</option>
+                                    <option>PRADO FERREIRA</option>
+                                    <option>PRIMEIRO DE MAIO</option>
+                                    <option>ROLÂNDIA</option>
+                                    <option>SERTANÓPOLIS</option>
+                                    <option>TAMARANA</option>
+                                  </select>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Número de Partiipantes</label>
+                                <input type="text" class="form-control" formControlName="numberOfParticipants">
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-3">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Data de Fundação</label>
-                            <input type="text" mask="d0/M0/0000" [leadZeroDateTime]="true" [validation]="true" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                    <div class="row">
+                        <div class="col-lg-12" style="text-align: right;">
+                            <button type="button" class="btn btn-sm btn-primary" (click)="saveGO()" [disabled]="!form.valid">Salvar GO</button>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Endereço</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Bairro</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">CEP</label>
-                            <input type="text" mask="99999-999" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Email</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Site</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Telefone</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Cidade</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
-                                <option>Londrina</option>
-                                <option>Ibiporã</option>
-                                <option>Cambé</option>
-                                <option>Rolândia</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Decanato/Setor</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
-                                <option>Centro</option>
-                                <option>Sul</option>
-                                <option>Norte</option>
-                                <option>Leste</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Número de Partiipantes</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
-                        </div>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
-        <!-- /.card -->
+        <!-- /.card 
         <div class="card card-default">
             <div class="card-header d-flex justify-content-between align-items-center">Histórico Coordenadores
                 <button type="button" class="btn btn-sm btn-primary">Add Mandato</button>
             </div>
-            <!-- /.card-body -->
+            
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table">
@@ -166,6 +185,6 @@
                     </table>
                   </div>
             </div>
-        </div>
+        </div>-->
     </div>
 </div>

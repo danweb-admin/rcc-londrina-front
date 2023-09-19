@@ -35,37 +35,16 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <td>Templo do Senhor</td>
-                            <td>Centro</td>
-                            <td>Londrina</td>
-                            <td>Adulto</td>
+                          <tr *ngFor="let item of listOfGroups">
+                            <td>{{item.name}}</td>
+                            <td>{{item.paroquiaCapela.name}}</td>
+                            <td>{{item.city}}</td>
+                            <td>{{describeType(item.type)}}</td>
                             <td>Sim</td>
-                            <td>Glaucia Silva</td>
+                            <td>{{item.neighborhood}}</td>
                             <td>
-                                <a href="#">Gerenciar</a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>Novo Renascer</td>
-                            <td>Sul</td>
-                            <td>Londrina</td>
-                            <td>Adulto</td>
-                            <td>Sim</td>
-                            <td>Edvilson Marques</td>
-                            <td>
-                                <a href="#">Gerenciar</a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>Manda fogo</td>
-                            <td>Ibiporã</td>
-                            <td>Ibiporã</td>
-                            <td>Jovem</td>
-                            <td>Sim</td>
-                            <td>Suzana Alves</td>
-                            <td>
-                                <a href="#">Gerenciar</a>
+                              <a (click)="navigateGrupoOracao(item)">Gerenciar</a>
+                                
                             </td>
                           </tr>
                         </tbody>

@@ -13,6 +13,11 @@ const routes: Routes = [
         component: GrupoOracaoComponent,
 
     },
+    {
+        path: 'edicao',
+        component: GrupoOracaoComponent
+
+    },
 ];
 
 @NgModule({

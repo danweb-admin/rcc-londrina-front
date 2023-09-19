@@ -6,6 +6,7 @@ export interface Paroquia {
     address: string;
     neighborhood: string;
     city: string;
+    zipCode: string;
     decanatoId: string;
     active: boolean;
     createdAt: string;

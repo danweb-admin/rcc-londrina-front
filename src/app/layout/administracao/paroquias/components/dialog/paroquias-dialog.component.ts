@@ -43,6 +43,7 @@ import { Decanato } from '../../../../../shared/models/decanato';
           active: [ this.isAddMode ? true : this.paroquia?.active, Validators.required],
           createdAt: [this.paroquia?.createdAt || new Date()],
           address: [this.paroquia?.address || '', Validators.required],
+          zipCode: [this.paroquia?.zipCode || ''],
           city: [this.paroquia?.city,Validators.required],
           decanatoId: [this.paroquia?.decanatoId, Validators.required],
           neighborhood: [this.paroquia?.neighborhood || '', Validators.required],
@@ -52,7 +53,7 @@ import { Decanato } from '../../../../../shared/models/decanato';
     }
 
     loadDecanatos(){
-      this.decanatoService.loadDecanatos(true).subscribe((resp: Decanato[])=> {
+      this.decanatoService.loadDecanatos(true).subscribe((resp: Decanato[])=> {        
         this.decanatos = resp;
       })
     }

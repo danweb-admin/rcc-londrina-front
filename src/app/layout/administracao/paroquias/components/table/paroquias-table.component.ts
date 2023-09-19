@@ -47,7 +47,7 @@ export class ParoquiasTableComponent implements OnInit {
     loadParoquias(search){
         this.paroquiaService.loadParoquias(true, search).subscribe((resp: Paroquia[]) => {
             this.dataSource = new MatTableDataSource<Paroquia>();
-            this.dataSource = new MatTableDataSource<Paroquia>(resp);
+            this.dataSource = new MatTableDataSource<Paroquia>(resp);            
             this.dataSource.paginator = this.paginator;       
          });
 

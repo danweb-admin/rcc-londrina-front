@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, Location } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { NgbAccordionModule, NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 import { PageHeaderModule } from '../../shared';
@@ -14,10 +14,10 @@ import { ServosComponent } from './components/servos/servos.component';
 import { ServosDialogComponent } from './components/servos/components/servos-dialog/servos-dialog.component';
 import { NucleoComponent } from './components/nucleo/nucleo.component';
 import { NucleoDialogComponent } from './components/nucleo/components/nucleo-dialog/nucleo-dialog.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-    imports: [
-        CommonModule, 
+    imports: [ 
         GrupoOracaoTableRoutingModule,
         LayoutModule,
         PageHeaderModule, 
@@ -25,7 +25,10 @@ import { NucleoDialogComponent } from './components/nucleo/components/nucleo-dia
         NgbNavModule,
         MatIconModule,
         NgxMaskModule.forRoot(),
-
+        CommonModule,
+        MatIconModule,
+        FormsModule,
+        ReactiveFormsModule
         ],
     exports: [],
     declarations: [

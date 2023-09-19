@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, Location } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -13,6 +13,7 @@ import { AuthGuard } from './shared';
 import { InterceptorModule } from './shared/interceptor/interceptor.module';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { NgxNavigationWithDataComponent } from 'ngx-navigation-with-data';
 
 
 @NgModule({
@@ -35,7 +36,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     ],
     declarations: [AppComponent,
     ],
-    providers: [AuthGuard],
+    providers: [AuthGuard, NgxNavigationWithDataComponent],
     bootstrap: [AppComponent]
 })
 export class AppModule {}
