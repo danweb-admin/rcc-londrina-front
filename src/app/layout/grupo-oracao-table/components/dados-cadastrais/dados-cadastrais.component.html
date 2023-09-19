@@ -3,7 +3,7 @@
         <div class="card card-default">
             <!-- /.card-body -->
             <div class="card-body">
-                <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <form [formGroup]="form" (ngSubmit)="saveGO()">
                     <input type="hidden" formControlName="id">
                     <input type="hidden" formControlName="createdAt">
                     <input type="hidden" formControlName="updatedAt">
