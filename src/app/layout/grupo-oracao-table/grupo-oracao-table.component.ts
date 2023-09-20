@@ -47,8 +47,6 @@ export class GrupoOracaoTableComponent implements OnInit {
     loadGrupos(){
         this.grupoOracaoService.loadGrupos(true, '').subscribe((resp: GrupoOracao[]) => {
             this.listOfGroups = resp;
-            console.log(this.listOfGroups);
-            
         })
     }
 }
