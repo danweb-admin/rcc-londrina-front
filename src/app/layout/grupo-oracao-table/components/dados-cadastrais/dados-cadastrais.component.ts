@@ -51,6 +51,11 @@ export class DadosCadastraisComponent implements OnInit {
         this.neighborhood.nativeElement.value = found.neighborhood;
         this.city.nativeElement.value = found.city;
         this.zipCode.nativeElement.value = found.zipCode;
+        this.form.controls['address'].setValue(found.address);
+        this.form.controls['neighborhood'].setValue(found.neighborhood);
+        this.form.controls['city'].setValue(found.city);
+        this.form.controls['zipCode'].setValue(found.zipCode);
+        
       }
     }
 
@@ -62,34 +67,32 @@ export class DadosCadastraisComponent implements OnInit {
     }
 
     initializeForm(){
-        this.form = this.formBuilder.group({
-            id:  [this.grupoOracao?.id || ''],
-            name: [this.grupoOracao?.name || '', Validators.required],
-            active: [ this.isAddMode ? true : this.grupoOracao?.active, Validators.required],
-            paroquiaId: [this.grupoOracao?.paroquiaId || '', Validators.required],
-            type: [this.grupoOracao?.type || '', Validators.required],
-            dayOfWeek: [this.grupoOracao?.dayOfWeek || '', Validators.required],
-            local: [this.grupoOracao?.local || '', Validators.required],
-            time1: [this.grupoOracao?.time.substring(11,16) || '', Validators.required],
-            foundationDate1: [this.formatDate(this.grupoOracao?.foundationDate) || ''],
-            address: [this.grupoOracao?.address || '', Validators.required],
-            neighborhood: [this.grupoOracao?.neighborhood || '', Validators.required],
-            zipCode: [this.grupoOracao?.zipCode || '', Validators.required],
-            city: [this.grupoOracao?.city || '', Validators.required],
-            email: [this.grupoOracao?.email || ''],
-            site: [this.grupoOracao?.site || ''],
-            telephone: [this.grupoOracao?.telephone || ''],
-            numberOfParticipants: [this.grupoOracao?.numberOfParticipants || '', Validators.required],
-            createdAt: [this.grupoOracao?.createdAt || new Date()],
-            updatedAt: [ this.grupoOracao?.createdAt],
-          });
-          console.log(this.grupoOracao);
+      this.form = this.formBuilder.group({
+          id:  [this.grupoOracao?.id || ''],
+          active: [this.grupoOracao?.active || true],
+          name: [this.grupoOracao?.name || '', Validators.required],
+          paroquiaId: [this.grupoOracao?.paroquiaId || '', Validators.required],
+          type: [this.grupoOracao?.type || '', Validators.required],
+          dayOfWeek: [this.grupoOracao?.dayOfWeek || '', Validators.required],
+          local: [this.grupoOracao?.local || '', Validators.required],
+          time1: [this.grupoOracao?.time.substring(11,16) || '', Validators.required],
+          foundationDate1: [this.formatDate(this.grupoOracao?.foundationDate) || '', Validators.required],
+          address: [this.grupoOracao?.address || '', Validators.required],
+          neighborhood: [this.grupoOracao?.neighborhood || '', Validators.required],
+          zipCode: [this.grupoOracao?.zipCode || '', Validators.required],
+          city: [this.grupoOracao?.city || '', Validators.required],
+          email: [this.grupoOracao?.email || ''],
+          site: [this.grupoOracao?.site || ''],
+          telephone: [this.grupoOracao?.telephone || ''],
+          numberOfParticipants: [this.grupoOracao?.numberOfParticipants || '', Validators.required],
+          createdAt: [this.grupoOracao?.createdAt || new Date()],
+          updatedAt: [ this.grupoOracao?.updatedAt],
+        });
+        console.log(this.grupoOracao);
           
     }
 
-    formatDate(date: string){
-      console.log(date);
-      
+    formatDate(date: string){      
       if (date === '' || date === undefined){
         return '';
       }

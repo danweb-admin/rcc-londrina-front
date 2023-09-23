@@ -10,13 +10,13 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Nome do Grupo de Oração</label>
-                                <input type="text" class="form-control" oninput="this.value = this.value.toUpperCase()" formControlName="name" >
+                                <label for="exampleInputEmail1">Nome do Grupo de Oração *</label>
+                                <input type="text" class="form-control" oninput="this.value = this.value.toUpperCase()" formControlName="name">
                             </div>
                         </div>
                         <div class="col-lg-3">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Tipo</label>
+                                <label for="exampleInputEmail1">Tipo *</label>
                                 <select class="form-control" formControlName="type">
                                     <option value="adolescente">ADOLESCENTE</option>
                                     <option value="adulto">ADULTO</option>
@@ -27,7 +27,7 @@
                         </div>
                         <div class="col-lg-3">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Dia da Semana</label>
+                                <label for="exampleInputEmail1">Dia da Semana *</label>
                                 <select class="form-control" formControlName="dayOfWeek">
                                     <option value="sunday">Domingo</option>
                                     <option value="monday">Segunda</option>
@@ -43,7 +43,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Paróquia</label>
+                                <label for="exampleInputEmail1">Paróquia *</label>
                                 <select class="form-control" formControlName="paroquiaId" (change)="onChange($event.target.value)">
                                     <option *ngFor="let item of paroquias" 
                                         [value]="item.id" >
@@ -56,19 +56,19 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Local</label>
+                                <label for="exampleInputEmail1">Local *</label>
                                 <input type="text" class="form-control" oninput="this.value = this.value.toUpperCase()" formControlName="local" >
                             </div>
                         </div>
                         <div class="col-lg-3">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Horário</label>
+                                <label for="exampleInputEmail1">Horário *</label>
                                 <input type="text" mask="00:00" [validation]="true" class="form-control" formControlName="time1"  >
                             </div>
                         </div>
                         <div class="col-lg-3">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Data de Fundação</label>
+                                <label for="exampleInputEmail1">Data de Fundação *</label>
                                 <input type="text" mask="d0/M0/0000" [specialCharacters]="[ '/' ]"  class="form-control" formControlName="foundationDate1" >
                             </div>
                         </div>
@@ -76,19 +76,19 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Endereço</label>
+                                <label for="exampleInputEmail1">Endereço *</label>
                                 <input type="text" class="form-control" oninput="this.value = this.value.toUpperCase()" formControlName="address" #address >
                             </div>
                         </div>
                         <div class="col-lg-3">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Bairro</label>
+                                <label for="exampleInputEmail1">Bairro *</label>
                                 <input type="text" class="form-control" oninput="this.value = this.value.toUpperCase()" formControlName="neighborhood"  #neighborhood>
                             </div>
                         </div>
                         <div class="col-lg-3">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">CEP</label>
+                                <label for="exampleInputEmail1">CEP *</label>
                                 <input type="text" mask="99999-999" class="form-control" formControlName="zipCode" #zipCode>
                             </div>
                         </div>
@@ -116,7 +116,7 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Cidade</label>
+                                <label for="exampleInputEmail1">Cidade *</label>
                                 <select class="form-control" formControlName="city" #city>
                                     <option>ALVORADA DO SUL</option>
                                     <option>BELA VISTA DO PARAÍSO</option>
@@ -140,8 +140,14 @@
                         
                         <div class="col-lg-3">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Número de Partiipantes</label>
+                                <label for="exampleInputEmail1">Número de Partiipantes *</label>
                                 <input type="text" class="form-control" formControlName="numberOfParticipants">
+                            </div>
+                        </div>
+                        <div class="col-lg-3 ">
+                            <div class="form-check form-check-inline" style="margin-top: 20px;">
+                                <input class="form-check-input"  type="checkbox" formControlName="active">
+                                <label class="form-check-label" >Ativo</label>
                             </div>
                         </div>
                     </div>
