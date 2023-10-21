@@ -37,6 +37,11 @@ const routes: Routes = [
                 path: 'paroquias',
                 loadChildren: () => import('./administracao/paroquias/paroquias.module').then((m) => m.ParoquiasModule),
                 canActivate: [AuthGuard]
+            },
+            {
+                path: 'usuarios',
+                loadChildren: () => import('./administracao/usuarios/usuarios.module').then((m) => m.UsuariosModule),
+                canActivate: [AuthGuard]
             }
         ]
     }
