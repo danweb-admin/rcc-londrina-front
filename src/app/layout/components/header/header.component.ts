@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
@@ -8,6 +8,7 @@ import { NavigationEnd, Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
     public pushRightClass: string;
+    userName: string;
 
     constructor( public router: Router) {
         this.router.events.subscribe((val) => {
@@ -19,6 +20,7 @@ export class HeaderComponent implements OnInit {
 
     ngOnInit() {
         this.pushRightClass = 'push-right';
+        this.userName = localStorage.getItem('user');
     }
 
     isToggled(): boolean {

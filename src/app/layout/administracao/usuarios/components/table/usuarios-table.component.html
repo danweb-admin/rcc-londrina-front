@@ -1,0 +1,64 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card card-default">
+            <!-- /.card-header -->
+            <div class="card-header">
+                <i class="fa fa-clock-o fa-fw"></i>Lista de Usuarios
+            </div>
+            <div class="row">
+              <div class="usuario-table-wrapper__search" >
+                <div class="usuario-table-wrapper__icon-wrapper">
+                  <i class="fa fa-fw fa-search"></i>&nbsp;
+                </div>
+                <input class="usuario-table-wrapper__search-input" #inputSearch (keyup)="applyFilter($event)">
+                <button class="btn"><i class="fa fa-close" (click)="closeFilterInput()"></i></button>
+                <button class="btn" (click)="openDialog(null)"><i class="fa fa-plus"></i></button>
+              </div>
+            </div>
+            
+            
+            <!-- /.card-body -->
+            <div class="card-body">
+                <div class="row">
+                  <table class="client-table__table" mat-table [dataSource]="dataSource">
+                    <ng-container matColumnDef="nome" >
+                      <th class="client-table__table-header" mat-header-cell *matHeaderCellDef > Nome </th>
+                      <td class="client-table__table-body" mat-cell *matCellDef="let element"> {{element.name}} </td>
+                    </ng-container>
+      
+                    <ng-container matColumnDef="email" >
+                      <th class="client-table__table-header" mat-header-cell *matHeaderCellDef > Email </th>
+                      <td class="client-table__table-body" mat-cell *matCellDef="let element"> {{element.email}} </td>
+                    </ng-container>
+      
+                    <ng-container matColumnDef="decanato" >
+                      <th class="client-table__table-header" mat-header-cell *matHeaderCellDef > Decanato </th>
+                      <td class="client-table__table-body" mat-cell *matCellDef="let element"> {{element.decanatoSetor?.name}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="grupoOracao" >
+                        <th class="client-table__table-header" mat-header-cell *matHeaderCellDef > Grupo de Oração </th>
+                        <td class="client-table__table-body" mat-cell *matCellDef="let element"> {{element.grupoOracao?.name}} </td>
+                      </ng-container>
+
+                    <ng-container matColumnDef="ativo" >
+                      <th class="client-table__table-header" mat-header-cell *matHeaderCellDef > Ativo </th>
+                      <td class="client-table__table-body" mat-cell *matCellDef="let element"> {{element.active == true ? 'SIM' : 'NÃO'}} </td>
+                    </ng-container>
+      
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+                    (click)="openDialog(row)">
+                    </tr>
+                  </table>
+
+                    
+                </div>
+                <div class="pagination">
+                  <mat-paginator [pageSizeOptions]="[10, 15, 100]" showFirstLastButtons></mat-paginator>
+                </div>
+            </div>
+        </div>
+        <!-- /.card -->
+    </div>
+</div>

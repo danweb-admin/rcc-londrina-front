@@ -18,7 +18,7 @@ export class GrupoOracaoService {
 
   loadGrupos(ativo: boolean, search: string): Observable<GrupoOracao[]> {
     
-    return this.http.get(`${environment.URL_API}${URL_GRUPO_ORACAO}`)
+    return this.http.get(`${environment.URL_API}${URL_GRUPO_ORACAO}?search=${search}`)
     .pipe(map((resp: GrupoOracao[]) => {
       return resp;
     }));

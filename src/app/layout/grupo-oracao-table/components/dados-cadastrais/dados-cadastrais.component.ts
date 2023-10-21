@@ -84,7 +84,7 @@ export class DadosCadastraisComponent implements OnInit {
           email: [this.grupoOracao?.email || ''],
           site: [this.grupoOracao?.site || ''],
           telephone: [this.grupoOracao?.telephone || ''],
-          numberOfParticipants: [this.grupoOracao?.numberOfParticipants || '', Validators.required],
+          numberOfParticipants: [this.grupoOracao?.numberOfParticipants || ''],
           createdAt: [this.grupoOracao?.createdAt || new Date()],
           updatedAt: [ this.grupoOracao?.updatedAt],
         });

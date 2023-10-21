@@ -8,5 +8,7 @@ export interface User {
     updatedAt: string;
     lastName: string;
     password: string;
+    grupoOracaoId: string;
+    decanatoSetorId: string;
   }
   

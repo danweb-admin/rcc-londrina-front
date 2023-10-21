@@ -10,8 +10,8 @@
                 <div class="grupo-oracao-table-wrapper__icon-wrapper">
                   <i class="fa fa-fw fa-search"></i>&nbsp;
                 </div>
-                <input class="grupo-oracao-table-wrapper__search-input" #inputSearch >
-                <button class="btn"><i class="fa fa-close"></i></button>
+                <input class="grupo-oracao-table-wrapper__search-input" #inputSearch (keyup)="applyFilter($event)">
+                <button class="btn"><i class="fa fa-close" (click)="closeFilterInput()"></i></button>
                 <button class="btn" (click)="newGrupoOracao()"><i class="fa fa-plus"></i></button>
               </div>
               
@@ -22,33 +22,45 @@
                     
                 </div>
                 <div class="row">
-                    <table class="table">
-                        <thead>
-                          <tr>
-                            <th scope="col">Grupo de Oração</th>
-                            <th scope="col">Decanato/Setor</th>
-                            <th scope="col">Cidade</th>
-                            <th scope="col">Tipo</th>
-                            <th scope="col">Homol.</th>
-                            <th scope="col">Coordenador</th>
-                            <th scope="col">Ações</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr *ngFor="let item of listOfGroups">
-                            <td>{{item.name}}</td>
-                            <td>{{item.paroquiaCapela.name}}</td>
-                            <td>{{item.city}}</td>
-                            <td>{{describeType(item.type)}}</td>
-                            <td>Sim</td>
-                            <td></td>
-                            <td>
-                              <a (click)="navigateGrupoOracao(item)">Gerenciar</a>
-                                
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
+                  <table class="grupo-oracao-table__table" mat-table [dataSource]="dataSource">
+                    <ng-container matColumnDef="nome" >
+                      <th class="grupo-oracao-table__table-header" mat-header-cell *matHeaderCellDef > Nome </th>
+                      <td class="grupo-oracao-table__table-body" mat-cell *matCellDef="let element"> {{element.name}} </td>
+                    </ng-container>
+      
+                    <ng-container matColumnDef="paroquia" >
+                      <th class="grupo-oracao-table__table-header" mat-header-cell *matHeaderCellDef > Paróquia/Capela </th>
+                      <td class="grupo-oracao-table__table-body" mat-cell *matCellDef="let element"> {{element.paroquiaCapela?.name}} </td>
+                    </ng-container>
+      
+                    <ng-container matColumnDef="decanato" >
+                      <th class="grupo-oracao-table__table-header" mat-header-cell *matHeaderCellDef > Decanato </th>
+                      <td class="grupo-oracao-table__table-body" mat-cell *matCellDef="let element"> {{element.paroquiaCapela.decanatoSetor?.name}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="cidade" >
+                      <th class="grupo-oracao-table__table-header" mat-header-cell *matHeaderCellDef > Cidade </th>
+                      <td class="grupo-oracao-table__table-body" mat-cell *matCellDef="let element"> {{element.city}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="tipo" >
+                      <th class="grupo-oracao-table__table-header" mat-header-cell *matHeaderCellDef > Tipo </th>
+                      <td class="grupo-oracao-table__table-body" mat-cell *matCellDef="let element"> {{describeType(element.type)}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="acoes" >
+                      <th class="grupo-oracao-table__table-header" mat-header-cell *matHeaderCellDef > Ações </th>
+                      <td class="grupo-oracao-table__table-body" mat-cell *matCellDef="let element"> <a (click)="navigateGrupoOracao(item)">Gerenciar</a> </td>
+                    </ng-container>
+      
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+                    (click)="openDialog(row)">
+                    </tr>
+                  </table>
+                </div>
+                <div class="pagination">
+                  <mat-paginator [pageSizeOptions]="[10, 15, 100]" showFirstLastButtons></mat-paginator>
                 </div>
             </div>
         </div>

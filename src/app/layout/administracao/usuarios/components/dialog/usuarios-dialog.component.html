@@ -1,0 +1,71 @@
+<div class="modal-header">
+    <h4 *ngIf="isAddMode" class="modal-title">Adicionar Usuário</h4>
+    <h4 *ngIf="!isAddMode" class="modal-title">Atualizar Usuário</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+</div>
+<div class="modal-body">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <input type="hidden" formControlName="id">
+        <input type="hidden" formControlName="createdAt">
+        <input type="hidden" formControlName="updatedAt">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label>Nome *</label>
+                    <input type="text" class="form-control" id="name" oninput="this.value = this.value.toUpperCase()" maxlength="100" formControlName="name" >
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="form-group">
+                    <label>Email *</label>
+                    <input type="text" class="form-control" formControlName="email" >
+                </div>
+            </div>
+            <div class="col-lg-1">
+                <div class="form-check form-check-inline" style="margin-left: -15px;  margin-top: 20px;">
+                    <input class="form-check-input"  type="checkbox" formControlName="active">
+                    <label class="form-check-label" >Ativo</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label>Decanato</label>
+                    <select class="form-control" formControlName="decanatoSetorId" >
+                        <option value="">NENHUM</option>
+                        <option *ngFor="let item of decanatos" 
+                            [value]="item.id">
+                        {{item.name}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label>Grupo de Oração</label>
+                    <select class="form-control" formControlName="grupoOracaoId" >
+                        <option value="">NENHUM</option>
+                        <option *ngFor="let item of listGrupoOracao" 
+                            [value]="item.id" >
+                        {{item.name }} - {{item.paroquiaCapela?.name}} - {{item.city}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6" *ngIf="isAddMode">
+                <div class="form-group">
+                    <label>Senha *</label>
+                    <input type="password"  class="form-control" formControlName="password">
+                </div>
+            </div>
+            
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-danger" (click)="activeModal.close('sair')">Cancelar</button>
+    <button type="button" class="btn btn-primary" (click)="onSubmit()" [disabled]="!form.valid">Salvar</button>
+</div>

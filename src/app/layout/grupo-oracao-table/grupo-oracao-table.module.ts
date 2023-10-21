@@ -15,6 +15,11 @@ import { ServosDialogComponent } from './components/servos/components/servos-dia
 import { NucleoComponent } from './components/nucleo/nucleo.component';
 import { NucleoDialogComponent } from './components/nucleo/components/nucleo-dialog/nucleo-dialog.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
     imports: [ 
@@ -24,9 +29,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         NgbAccordionModule,
         NgbNavModule,
         MatIconModule,
-        NgxMaskModule.forRoot(),
-        CommonModule,
-        MatIconModule,
+        MatToolbarModule,
+        MatCardModule,
+        MatTabsModule,
+        MatTableModule,
+        MatPaginatorModule,
+        NgxMaskModule.forChild(),
         FormsModule,
         ReactiveFormsModule
         ],
