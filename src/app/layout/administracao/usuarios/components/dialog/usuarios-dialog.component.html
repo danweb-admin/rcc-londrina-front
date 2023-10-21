@@ -44,7 +44,7 @@
             <div class="col-lg-6">
                 <div class="form-group">
                     <label>Grupo de Oração</label>
-                    <select class="form-control" formControlName="grupoOracaoId" (change)="onChange($event.target.value)">
+                    <select class="form-control" formControlName="grupoOracaoId" >
                         <option value="">NENHUM</option>
                         <option *ngFor="let item of listGrupoOracao" 
                             [value]="item.id" >
