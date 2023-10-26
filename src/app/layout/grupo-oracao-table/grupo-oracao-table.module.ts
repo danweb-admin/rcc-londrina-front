@@ -20,6 +20,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
     imports: [ 
@@ -36,7 +37,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
         MatPaginatorModule,
         NgxMaskModule.forChild(),
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        CommonModule
         ],
     exports: [],
     declarations: [
