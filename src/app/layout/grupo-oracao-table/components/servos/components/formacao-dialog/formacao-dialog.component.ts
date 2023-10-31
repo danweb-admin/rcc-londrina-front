@@ -4,14 +4,13 @@ import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { Servo } from '../../../../../../shared/models/servo';
 import { ServoService } from '../../../../../../shared/services/servo.service';
-import { FormacaoDialogComponent } from '../formacao-dialog/formacao-dialog.component';
 
 @Component({
-    selector: 'app-servos-dialog',
-    templateUrl: './servos-dialog.component.html',
-    styleUrls: ['./servos-dialog.component.scss'],
+    selector: 'app-formacao-dialog',
+    templateUrl: './formacao-dialog.component.html',
+    styleUrls: ['./formacao-dialog.component.scss'],
 })
-export class ServosDialogComponent  {
+export class FormacaoDialogComponent  {
     form: FormGroup;
     isAddMode: boolean = true;
     id: string;
@@ -22,7 +21,6 @@ export class ServosDialogComponent  {
     constructor(public activeModal: NgbActiveModal,
                 private formBuilder: FormBuilder,
                 private servoService: ServoService,
-                private modalService: NgbModal,
                 private toastr: ToastrService) {
                   
     }
@@ -37,7 +35,6 @@ export class ServosDialogComponent  {
         this.form = this.formBuilder.group({
           id:  [this.servo?.id || ''],
           name: [this.servo?.name || '', Validators.required],
-          birthday1: [this.formatDate(this.servo?.birthday) || '', Validators.required],
           cpf: [this.servo?.cpf || '', Validators.required],
           email: [this.servo?.email || '', Validators.required],
           cellphone: [this.servo?.cellPhone || '', Validators.required],
@@ -51,14 +48,7 @@ export class ServosDialogComponent  {
 
     }
 
-    openDialog(item){
-      const modalRef = this.modalService.open(FormacaoDialogComponent,{ size: 'lg' })
-      modalRef.result.then(
-          (result) => {
-              
-        }
-      );
-  }
+    
 
     onSubmit(){
         if (this.form.value.id === ""){
@@ -82,15 +72,5 @@ export class ServosDialogComponent  {
         }
     }
 
-    formatDate(date: string){      
-      if (date === '' || date === undefined){
-        return '';
-      }
-
-      let year = date.substring(0,4);
-      let month = date.substring(5,7);
-      let day = date.substring(8,10);
-
-      return `${day}/${month}/${year}`;
-    }
+    
 }

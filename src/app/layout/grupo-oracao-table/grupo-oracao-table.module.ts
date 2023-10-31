@@ -20,6 +20,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormacaoDialogComponent } from './components/servos/components/formacao-dialog/formacao-dialog.component';
 
 @NgModule({
     imports: [ 
@@ -36,7 +38,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
         MatPaginatorModule,
         NgxMaskModule.forChild(),
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        CommonModule
         ],
     exports: [],
     declarations: [
@@ -46,6 +49,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
         DadosCadastraisComponent,
         ServosComponent,
         ServosDialogComponent,
+        FormacaoDialogComponent,
         NucleoComponent,
         NucleoDialogComponent
         ]

@@ -50,7 +50,7 @@
 
                     <ng-container matColumnDef="acoes" >
                       <th class="grupo-oracao-table__table-header" mat-header-cell *matHeaderCellDef > Ações </th>
-                      <td class="grupo-oracao-table__table-body" mat-cell *matCellDef="let element"> <a (click)="navigateGrupoOracao(item)">Gerenciar</a> </td>
+                      <td class="grupo-oracao-table__table-body" mat-cell *matCellDef="let element"> <a (click)="navigateGrupoOracao(element)">Gerenciar</a> </td>
                     </ng-container>
       
                     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
