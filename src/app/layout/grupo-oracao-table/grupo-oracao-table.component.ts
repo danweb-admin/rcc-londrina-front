@@ -69,9 +69,7 @@ export class GrupoOracaoTableComponent implements OnInit {
         this.grupoOracaoService.loadGrupos(true, search).subscribe((resp: GrupoOracao[]) => {
             this.dataSource = new MatTableDataSource<GrupoOracao>();
             this.dataSource = new MatTableDataSource<GrupoOracao>(resp);            
-            this.dataSource.paginator = this.paginator;  
-            console.log(resp);
-            
+            this.dataSource.paginator = this.paginator;
             
         });
         if (this.paginator) {

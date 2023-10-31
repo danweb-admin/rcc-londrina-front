@@ -9,5 +9,7 @@ import { GrupoOracaoBodyComponent } from '../grupo-oracao-body/grupo-oracao-body
 export class GrupoOracaoComponent implements OnInit {
     constructor() {}
 
-    ngOnInit() {}
+    ngOnInit() {
+        
+    }
 }

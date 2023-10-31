@@ -88,7 +88,6 @@ export class DadosCadastraisComponent implements OnInit {
           createdAt: [this.grupoOracao?.createdAt || new Date()],
           updatedAt: [ this.grupoOracao?.updatedAt],
         });
-        console.log(this.grupoOracao);
           
     }
 

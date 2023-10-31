@@ -15,7 +15,7 @@ import { ToastrService } from 'ngx-toastr';
     form: FormGroup;
     isAddMode: boolean = true;
     id: string;
-    @Input() decanato: Decanato;
+    @Input() decanato: Decanato; 
     
     constructor(public activeModal: NgbActiveModal, 
                 private formBuilder: FormBuilder,
