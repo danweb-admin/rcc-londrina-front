@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
             this.authService.login(this.form.value.email, this.form.value.password).subscribe((resp: any) => {
               if (resp?.name){
                 this.sendLoginForm.emit();
-                this.router.navigate(['/dashboard']);
+                this.router.navigate(['/grupo-oracao']);
               }
             });
         }
