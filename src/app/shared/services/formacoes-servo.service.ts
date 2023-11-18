@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
-import { Formacao } from '../models/Formacao';
+import { Formacao } from '../models/formacao';
 import { FormacoesServo } from '../models/formacoes-servo';
 import { FormacoesServoCreate } from '../models/formacoes-servo-create';
 
