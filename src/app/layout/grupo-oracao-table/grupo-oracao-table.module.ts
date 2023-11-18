@@ -21,7 +21,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormacaoDialogComponent } from './components/servos/components/formacao-dialog/formacao-dialog.component';
+import { FormacoesComponent } from './components/servos/components/formacoes/formacoes.component';
 
 @NgModule({
     imports: [ 
@@ -49,7 +49,7 @@ import { FormacaoDialogComponent } from './components/servos/components/formacao
         DadosCadastraisComponent,
         ServosComponent,
         ServosDialogComponent,
-        FormacaoDialogComponent,
+        FormacoesComponent,
         NucleoComponent,
         NucleoDialogComponent
         ]

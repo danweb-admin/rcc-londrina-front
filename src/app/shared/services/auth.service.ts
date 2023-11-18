@@ -20,9 +20,16 @@ export class AuthService {
       localStorage.setItem('token', `${resp.token}`);
       localStorage.setItem('user',`${resp.user.name}`)
       localStorage.setItem('role', `${resp.user.role}`);
+      localStorage.setItem('admin',this.isAdmin(resp.user).toString())
       return resp.user as User;
     }));
-    
+  }
+
+  isAdmin(user){
+    if (user.decanatoSetorId == null && user.grupoOracaoId == null){
+      return true;
+    }
+    return false
   }
 
   public sign(): void {

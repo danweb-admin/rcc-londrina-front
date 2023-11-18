@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
@@ -24,6 +24,10 @@ import { UsuarioService } from '../../../../../shared/services/usuario.service';
     @Input() user: User;
     decanatos: Decanato[];
     listGrupoOracao: GrupoOracao[];
+    @ViewChild('decanato') decanato: ElementRef;
+    @ViewChild('administrator') administrator: ElementRef;
+    @ViewChild('grupoOracao') grupoOracao: ElementRef;
+
     
     constructor(public activeModal: NgbActiveModal, 
                 private formBuilder: FormBuilder,
@@ -31,13 +35,12 @@ import { UsuarioService } from '../../../../../shared/services/usuario.service';
                 private decanatoService: DecanatoService,
                 private usuarioService: UsuarioService,
                 private toastr: ToastrService) {
-                
-        
     }
 
     ngAfterViewInit(): void {
         this.loadDecanatos();
         this.loadGrupoOracao();
+        this.isAdministrator();
     }
 
     ngOnInit(): void {
@@ -56,7 +59,35 @@ import { UsuarioService } from '../../../../../shared/services/usuario.service';
           grupoOracaoId: [this.user?.grupoOracaoId || '',],
           updatedAt: [ null],
         });
+    }
 
+    isAdministrator(){
+      
+      if (this.form.value.decanatoSetorId == '' && this.form.value.grupoOracaoId == ''){
+        this.administrator.nativeElement.checked = true;
+        this.enableFields(true);
+
+      }else{
+        this.administrator.nativeElement.checked = false;
+      }
+    }
+
+    change(event){
+      let isChecked = event.currentTarget.checked;
+      this.enableFields(isChecked);
+    }
+
+    enableFields(isChecked){
+      if (isChecked){
+        this.decanato.nativeElement.disabled = true;
+        this.form.value.decanatoSetorId = '';
+
+        this.grupoOracao.nativeElement.disabled = true;
+        this.form.value.grupoOracaoId = '';
+      }else{
+        this.decanato.nativeElement.disabled = false;
+        this.grupoOracao.nativeElement.disabled = false;
+      }
     }
 
     loadDecanatos(){

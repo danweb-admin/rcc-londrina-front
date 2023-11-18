@@ -6,11 +6,11 @@ import { Servo } from '../../../../../../shared/models/servo';
 import { ServoService } from '../../../../../../shared/services/servo.service';
 
 @Component({
-    selector: 'app-formacao-dialog',
-    templateUrl: './formacao-dialog.component.html',
-    styleUrls: ['./formacao-dialog.component.scss'],
+    selector: 'app-formacoes',
+    templateUrl: './formacoes.component.html',
+    styleUrls: ['./formacoes.component.scss'],
 })
-export class FormacaoDialogComponent  {
+export class FormacoesComponent  {
     form: FormGroup;
     isAddMode: boolean = true;
     id: string;
