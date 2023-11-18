@@ -10,7 +10,7 @@
             <span>{{ 'Grupo de Oração'}}</span>
         </a>
         
-        <div class="nested-menu">
+        <div class="nested-menu" *ngIf="isAdmin == 'true'">
             <a (click)="addExpandClass('pages')" class="list-group-item">
                 <i class="fa fa-plus"></i>&nbsp;
                 <span>{{ 'Administração'}}</span>
@@ -27,6 +27,12 @@
                         <a [routerLink]="['/paroquias']" >
                             <i class="fa fa-university"></i>&nbsp;
                             <span>{{ 'Paróquias' }}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/formacoes']" >
+                            <i class="fa fa-vcard"></i>&nbsp;
+                            <span>{{ 'Formações' }}</span>
                         </a>
                     </li>
                     <li>

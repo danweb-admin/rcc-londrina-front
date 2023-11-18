@@ -35,6 +35,11 @@ const routes: Routes = [
                 canActivate: [AuthGuard]
             },
             {
+                path: 'formacoes',
+                loadChildren: () => import('./administracao/formacao/formacao.module').then((m) => m.FormacaoModule),
+                canActivate: [AuthGuard]
+            },
+            {
                 path: 'usuarios',
                 loadChildren: () => import('./administracao/usuarios/usuarios.module').then((m) => m.UsuariosModule),
                 canActivate: [AuthGuard]

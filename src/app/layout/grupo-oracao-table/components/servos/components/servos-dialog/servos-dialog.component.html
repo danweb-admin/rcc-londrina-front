@@ -99,10 +99,9 @@
             </div>
         </form>
 
-        <!-- <div style="margin-top: 10px;">
+        <div style="margin-top: 10px;">
             <div class="card card-default">
                 <div class="card-header d-flex justify-content-between align-items-center">Formações
-                    <button type="button" class="btn btn-sm btn-primary" (click)="openDialog(null)">Adicionar Formação</button>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -112,25 +111,31 @@
                                   <th scope="col">#</th>
                                   <th scope="col">Formação</th>
                                   <th scope="col">Data Certificado</th>
+                                  <th scope="col">Usuário</th>
+                                  <th scope="col">Ação</th>
+
                                 </tr>
                               </thead>
                               <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Formação Humana I</td>
-                                    <td>10/05/2009</td>
+                                <tr *ngFor="let item of formacoesServo; index as i">
+                                    <th scope="row">{{i + 1}}</th>
+                                    <td>{{item.formacao.name}}</td>
+                                    <td>{{formatDate(item.certificateDate)}}</td>
+                                    <td>{{item.usuario.name}}</td>
+                                    <td>
+                                        <button type="button" class="btn" (click)="removeFormacaoServo(item.id)">
+                                            <i class="fa fa-trash"></i>
+                                        </button>
+
+                                    </td>
+
                                 </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Formação Humana II</td>
-                                    <td>10/10/2010</td>
-                                  </tr>
                               </tbody>
                         </table>
                       </div>
                 </div>
             </div>
-        </div> -->
+        </div>
         
         
     </div>

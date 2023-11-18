@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
+import { UsuarioService } from '../../../shared/services/usuario.service';
 
 @Component({
     selector: 'app-sidebar',
@@ -11,15 +12,18 @@ export class SidebarComponent implements OnInit {
     collapsed = true;
     showMenu: string;
     pushRightClass: string;
+    isAdmin: string;
 
     @Output() collapsedEvent = new EventEmitter<boolean>();
 
-    constructor(public router: Router) {
+    constructor(public router: Router,
+                private userService: UsuarioService) {
         this.router.events.subscribe((val) => {
             if (val instanceof NavigationEnd && window.innerWidth <= 992 && this.isToggled()) {
                 this.toggleSidebar();
             }
         });
+
     }
 
     ngOnInit() {
@@ -28,6 +32,7 @@ export class SidebarComponent implements OnInit {
         this.showMenu = '';
         this.pushRightClass = 'push-right';
         this.toggleCollapsed();
+        this.isAdmin = localStorage.getItem('admin') ;
     }
 
     eventCalled() {

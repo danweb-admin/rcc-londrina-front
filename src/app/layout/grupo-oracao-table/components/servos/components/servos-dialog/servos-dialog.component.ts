@@ -2,9 +2,11 @@ import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
+import { FormacoesServo } from '../../../../../../shared/models/formacoes-servo';
+import { FormacoesServoService } from '../../../../../../shared/services/formacoes-servo.service';
 import { Servo } from '../../../../../../shared/models/servo';
 import { ServoService } from '../../../../../../shared/services/servo.service';
-import { FormacaoDialogComponent } from '../formacao-dialog/formacao-dialog.component';
+import { FormacoesComponent } from '../formacoes/formacoes.component';
 
 @Component({
     selector: 'app-servos-dialog',
@@ -16,6 +18,7 @@ export class ServosDialogComponent  {
     isAddMode: boolean = true;
     id: string;
     grupoOracaoId: string;
+    formacoesServo: FormacoesServo[];
     @Input() servo: Servo;
     @Input() grupo_oracao_id: string; 
 
@@ -23,6 +26,7 @@ export class ServosDialogComponent  {
                 private formBuilder: FormBuilder,
                 private servoService: ServoService,
                 private modalService: NgbModal,
+                private formacoesServoService: FormacoesServoService,
                 private toastr: ToastrService) {
                   
     }
@@ -49,10 +53,11 @@ export class ServosDialogComponent  {
           updatedAt: [ null],
         });
 
+        this.loadFormacoesServo(this.form.value.id);
     }
 
     openDialog(item){
-      const modalRef = this.modalService.open(FormacaoDialogComponent,{ size: 'lg' })
+      const modalRef = this.modalService.open(FormacoesComponent,{ size: 'lg' })
       modalRef.result.then(
           (result) => {
               
@@ -60,26 +65,44 @@ export class ServosDialogComponent  {
       );
   }
 
-    onSubmit(){
-        if (this.form.value.id === ""){
-          this.servoService.save(this.form.value).subscribe((resp: Servo) => {
-            this.toastr.success('Servo(a) adicionado(a) com sucesso.');
-            this.activeModal.close(resp);
-          },
-          (error: any) =>{
-            console.log(error);
-            this.toastr.warning(error.error?.message)
-          });
-        } else {
-          this.servoService.update(this.form.value).subscribe((resp: Servo) => {
-            this.toastr.success('Servo(a) atualizado(a) com sucesso.');
-            this.activeModal.close(resp);
-          },
-          (error: any) =>{
-            console.log(error);
-            this.toastr.warning(error.error?.message)
-          });
-        }
+  loadFormacoesServo(servoId: string){
+    if (servoId != ""){
+      this.formacoesServoService.loadFormacoesByServo(servoId).subscribe((resp: FormacoesServo[]) => {
+        this.formacoesServo = resp;
+      })
+    }
+  }
+
+  removeFormacaoServo(formacaoServoid: string){
+    if (confirm("Voce deseja remover essa formação? ")){
+      this.formacoesServoService.delete(formacaoServoid).subscribe(() => {
+        this.loadFormacoesServo(this.form.value.id);
+      })
+    }
+    
+  }
+
+
+  onSubmit(){
+    if (this.form.value.id === ""){
+      this.servoService.save(this.form.value).subscribe((resp: Servo) => {
+        this.toastr.success('Servo(a) adicionado(a) com sucesso.');
+        this.activeModal.close(resp);
+      },
+      (error: any) =>{
+        console.log(error);
+        this.toastr.warning(error.error?.message)
+      });
+    } else {
+      this.servoService.update(this.form.value).subscribe((resp: Servo) => {
+        this.toastr.success('Servo(a) atualizado(a) com sucesso.');
+        this.activeModal.close(resp);
+      },
+      (error: any) =>{
+        console.log(error);
+        this.toastr.warning(error.error?.message)
+      });
+      }
     }
 
     formatDate(date: string){      
