@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Observable } from 'rxjs';
 import { FormacaoService } from '../../../../../shared/services/formacao.service';
-import { Formacao } from '../../../../../shared/models/Formacao';
+import { Formacao } from '../../../../../shared/models/formacao';
 import { FormacoesDialogComponent } from '../dialog-formacoes/formacoes-dialog.component';
 import { FormacaoDialogComponent } from '../dialog/formacao-dialog.component';
 
