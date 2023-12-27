@@ -1,4 +1,4 @@
-FROM node:13-alpine as angular
+FROM node:16.15.0 as angular
 WORKDIR /app
 COPY package.json /app
 RUN npm install
