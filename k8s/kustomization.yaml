@@ -9,4 +9,4 @@ namespace: rcc-manager
 images:
 - name: rcc-lda-front
   newName: williambr2022/rcc-lda-front
-  newTag: c45bb6160881c7b1c75eb315e932ded12686d6df
+  newTag: 8875646651314a3c79e74702d4c0d7bcd11c9b12
