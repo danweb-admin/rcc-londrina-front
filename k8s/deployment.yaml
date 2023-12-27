@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  name: rcc-lda-front
+  namespace: rcc-manager
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rcc-lda-front
+  template:
+    metadata:
+      labels:
+        app: rcc-lda-front
+    spec:
+      containers:
+        - name: rcc-lda-front
+          image: williambr2022/rcc-lda-front:latest
+          ports:
+            - containerPort: 80
+          imagePullPolicy: Always
+        
