@@ -1,0 +1,12 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- deployment.yaml
+- service.yaml
+
+namespace: rcc-manager
+
+images:
+- name: rcc-lda-front
+  newName: williambr2022/rcc-lda-front
+  newTag: 273d34525145b3e3b71c7bd73e7c0964f34bb0cf
