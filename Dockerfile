@@ -1,4 +1,4 @@
-FROM node:15-alpine as angular
+FROM node:16-alpine as angular
 WORKDIR /app
 COPY package.json /app
 RUN npm install --silent
