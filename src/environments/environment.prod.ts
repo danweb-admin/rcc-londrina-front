@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    URL_API: 'http://161.35.255.131:32000',
+    URL_API: 'https://rcc-manager.api-danweb-softwares.click',
 };
