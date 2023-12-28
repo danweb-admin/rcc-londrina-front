@@ -10,3 +10,6 @@ images:
 - name: rcc-lda-front
   newName: williambr2022/rcc-lda-front
   newTag: 8875646651314a3c79e74702d4c0d7bcd11c9b12
+- name: rcc-londrina-front
+  newName: williambr2022/rcc-londrina-front
+  newTag: 97fa42c969a30c0f9b9d15ce6ffabfede19c2892
