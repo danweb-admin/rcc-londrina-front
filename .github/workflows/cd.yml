@@ -26,7 +26,7 @@ jobs:
       with:
         username: ${{ secrets.DOCKER_USER }}
         password: ${{ secrets.DOCKER_PASSWORD }}
-        repository: ${{ secrets.DOCKER_USER }}/rcc-lda-front
+        repository: ${{ secrets.DOCKER_USER }}/rcc-londrina-front
         tags: ${{ github.sha }}, latest
 
   deploy:
@@ -43,7 +43,7 @@ jobs:
       - name: update k8s
         run: |
           cd k8s
-          kustomize edit set image rcc-lda-front=${{ secrets.DOCKER_USER }}/rcc-lda-front:${{ github.sha }}
+          kustomize edit set image rcc-londrina-front=${{ secrets.DOCKER_USER }}/rcc-londrina-front:${{ github.sha }}
           cat kustomization.yaml
       - name: commit
         run: |
