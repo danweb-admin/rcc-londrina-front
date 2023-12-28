@@ -7,9 +7,6 @@ resources:
 namespace: rcc-manager
 
 images:
-- name: rcc-lda-front
-  newName: williambr2022/rcc-lda-front
-  newTag: 8875646651314a3c79e74702d4c0d7bcd11c9b12
-- name: rcc-londrina-front
+- name: williambr2022/rcc-londrina-front
   newName: williambr2022/rcc-londrina-front
   newTag: 6a63260d417b62a7741b6700876f3a61016aa7ba

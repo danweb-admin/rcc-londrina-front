@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment 
 metadata:
-  name: rcc-lda-front
+  name: rcc-londrina-front
   namespace: rcc-manager
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: rcc-lda-front
+      app: rcc-londrina-front
   template:
     metadata:
       labels:
-        app: rcc-lda-front
+        app: rcc-londrina-front
     spec:
       containers:
-        - name: rcc-lda-front
-          image: williambr2022/rcc-lda-front:latest
+        - name: rcc-londrina-front
+          image: williambr2022/rcc-londrina-front
           ports:
             - containerPort: 80
           imagePullPolicy: Always
