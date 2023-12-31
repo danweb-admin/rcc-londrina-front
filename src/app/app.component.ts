@@ -1,4 +1,5 @@
-import { AfterContentChecked, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -8,10 +9,11 @@ import { AfterContentChecked, ChangeDetectorRef, Component, OnInit } from '@angu
 })
 export class AppComponent implements OnInit{
 
-    constructor() {
-      }
+    constructor(private router: Router) {
+      
+    }
 
     ngOnInit() {
-        
+      this.router.navigate(['/login']);
     }
 }
