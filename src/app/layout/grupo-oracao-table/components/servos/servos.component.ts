@@ -68,7 +68,8 @@ export class ServosComponent implements OnInit {
             { key: "universidades", value: "Universidades"},
             { key: "religiosas", value: "Para as Religiosas"},
             { key: "seminaristas", value: "Seminaristas"},
-            { key: "cristo-sacerdote", value: "Cristo Sacerdote"}
+            { key: "cristo-sacerdote", value: "Cristo Sacerdote"},
+            { key: "discernimento", value: "Em Discernimento"},
         ]
     }
 }
