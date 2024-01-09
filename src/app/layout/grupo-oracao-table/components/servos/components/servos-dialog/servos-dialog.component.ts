@@ -7,6 +7,7 @@ import { FormacoesServoService } from '../../../../../../shared/services/formaco
 import { Servo } from '../../../../../../shared/models/servo';
 import { ServoService } from '../../../../../../shared/services/servo.service';
 import { FormacoesComponent } from '../formacoes/formacoes.component';
+import { ValidateService } from '../../../../../../shared/services/validate-service';
 
 @Component({
     selector: 'app-servos-dialog',
@@ -25,6 +26,7 @@ export class ServosDialogComponent  {
     constructor(public activeModal: NgbActiveModal,
                 private formBuilder: FormBuilder,
                 private servoService: ServoService,
+                private validateService: ValidateService,
                 private modalService: NgbModal,
                 private formacoesServoService: FormacoesServoService,
                 private toastr: ToastrService) {
@@ -56,6 +58,32 @@ export class ServosDialogComponent  {
         this.loadFormacoesServo(this.form.value.id);
     }
 
+    onBlurBirthDate(input){
+      const partesData = input.target.value.split('/');
+      const element = document.getElementById(input.target.id) as HTMLInputElement;
+
+      const dia = parseInt(partesData[0], 10);
+      const mes = parseInt(partesData[1], 10);
+      const ano = parseInt(partesData[2], 10);
+
+      if (dia < 1 || dia > 31 || mes < 1 || mes > 12 || ano < 1900) {
+        this.toastr.warning('Data de nascimento inválida');
+        element.focus();
+        return false;
+      }
+    }
+
+    onBlurCellPhone(input){
+      const length = input.target.value.length;
+      const element = document.getElementById(input.target.id) as HTMLInputElement;
+
+      if (length < 15) {
+        this.toastr.warning('Celular inválido');
+        element.focus();
+        return false;
+      }
+    }
+
     openDialog(item){
       const modalRef = this.modalService.open(FormacoesComponent,{ size: 'lg' })
       modalRef.result.then(
@@ -84,6 +112,12 @@ export class ServosDialogComponent  {
 
 
   onSubmit(){
+    let cpf = this.form.value.cpf;
+    if (!this.validateService.validarCpf(cpf)){
+      this.toastr.warning("CPF Inválido.")
+      return;
+    }
+
     if (this.form.value.id === ""){
       this.servoService.save(this.form.value).subscribe((resp: Servo) => {
         this.toastr.success('Servo(a) adicionado(a) com sucesso.');
