@@ -22,7 +22,7 @@
             <div class="col-lg-4">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Data de Nascimento</label>
-                    <input type="text" class="form-control" [specialCharacters]="[ '/' ]"  mask="d0/m0/0000" id="birthday1" formControlName="birthday1" (blur)="onBlurBirthDate($event)">
+                    <input type="text" class="form-control" [specialCharacters]="[ '/' ]"  mask="d0/m0/0000" id="birthday1" formControlName="birthday1" >
                 </div>
             </div>
         </div>
@@ -42,7 +42,7 @@
             <div class="col-lg-4">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Celular</label>
-                    <input type="text" class="form-control"  formControlName="cellphone" id="cellphone" (blur)="onBlurCellPhone($event)">
+                    <input type="text" class="form-control"  formControlName="cellphone" id="cellphone" >
                 </div>
             </div>
         </div>
