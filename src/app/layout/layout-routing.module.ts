@@ -40,6 +40,11 @@ const routes: Routes = [
                 canActivate: [AuthGuard]
             },
             {
+                path: 'confirmacao-servos',
+                loadChildren: () => import('./administracao/servos-confirmation/servos-confirmation.module').then((m) => m.ServosConfirmationModule),
+                canActivate: [AuthGuard]
+            },
+            {
                 path: 'usuarios',
                 loadChildren: () => import('./administracao/usuarios/usuarios.module').then((m) => m.UsuariosModule),
                 canActivate: [AuthGuard]

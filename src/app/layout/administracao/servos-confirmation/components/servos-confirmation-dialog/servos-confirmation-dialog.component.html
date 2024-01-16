@@ -1,0 +1,54 @@
+<div class="modal-header">
+    <h4 class="modal-title">Validar Servo</h4>    
+    <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+</div>
+<div class="modal-body">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <input type="hidden" formControlName="id">
+        <input type="hidden" formControlName="createdAt">
+        <input type="hidden" formControlName="updatedAt">
+        <input type="hidden" formControlName="grupoOracaoId">
+        <input type="hidden" formControlName="mainMinistry">
+        <input type="hidden" formControlName="secondaryMinistry">
+        <input type="hidden" formControlName="active">
+        
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Nome</label>
+                    <input type="text" class="form-control" formControlName="name" oninput="this.value = this.value.toUpperCase()">
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Data de Nascimento</label>
+                    <input type="text" class="form-control" [specialCharacters]="[ '/' ]"  mask="d0/m0/0000" id="birthday1" formControlName="birthday1" (blur)="onBlurBirthDate($event)">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">CPF</label>
+                    <input type="text" class="form-control"  formControlName="cpf">
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email</label>
+                    <input type="text" class="form-control"   formControlName="email">
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Celular</label>
+                    <input type="text" class="form-control"  formControlName="cellphone" id="cellphone" (blur)="onBlurCellPhone($event)">
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-danger" (click)="activeModal.close('sair')">Cancelar</button>
+    <button type="button" class="btn btn-primary" (click)="onSubmit()" [disabled]="!form.valid">Salvar</button>
+</div>

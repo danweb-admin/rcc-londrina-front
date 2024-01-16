@@ -9,7 +9,10 @@
             <i class="fa fa-fw fa-table"></i>&nbsp;
             <span>{{ 'Grupo de Oração'}}</span>
         </a>
-        
+        <a [routerLink]="['/confirmacao-servos']" class="list-group-item">
+            <i class="fa fa-users"></i>&nbsp;
+            <span>{{ 'Confirmação Servos' }}</span>
+        </a>
         <div class="nested-menu" *ngIf="isAdmin == 'true'">
             <a (click)="addExpandClass('pages')" class="list-group-item">
                 <i class="fa fa-plus"></i>&nbsp;

@@ -14,5 +14,6 @@ export interface Servo {
     active: boolean;
     createdAt: string;
     updatedAt: string;
+    checked: boolean;
     grupoOracao: GrupoOracao
 }
