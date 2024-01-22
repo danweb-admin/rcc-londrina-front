@@ -53,7 +53,7 @@ export class ServosComponent implements OnInit {
     loadMinistiries(){
         this.ministries = 
         [
-            { key: "coordenadores", value: "Coordenadores"},
+            { key: "coordenadores", value: "Coordenadação"},
             { key: "musica-artes", value: "Música & Artes"},
             { key: "pregacao", value: "Pregação"},
             { key: "promocao-humana", value: "Promoção Humana"},
@@ -61,7 +61,7 @@ export class ServosComponent implements OnInit {
             { key: "formacao", value: "Formação"},
             { key: "intercessao", value: "Intercessão"},
             { key: "cura-libertacao", value: "Cura e Libertação"},
-            { key: "jovem", value: "Jovem"},
+            { key: "comunidades", value: "Novas Comunidades"},
             { key: "criancas-adolescentes", value: "Crianças e Adolescentes"},
             { key: "comunicacao", value: "Comunicação"},
             { key: "familias", value: "Para as Famílias"},
@@ -69,7 +69,7 @@ export class ServosComponent implements OnInit {
             { key: "religiosas", value: "Para as Religiosas"},
             { key: "seminaristas", value: "Seminaristas"},
             { key: "cristo-sacerdote", value: "Cristo Sacerdote"},
-            { key: "discernimento", value: "Em Discernimento"},
+            { key: "em-discernimento", value: "Em Discernimento"},
         ]
     }
 }

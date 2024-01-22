@@ -12,13 +12,13 @@
             <div class="row">
                 <div class="col-lg-8">
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Nome</label>
+                        <label for="exampleInputEmail1">Nome *</label>
                         <input type="text" class="form-control" formControlName="name" oninput="this.value = this.value.toUpperCase()">
                     </div>
                 </div>
                 <div class="col-lg-3">
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Data de Nascimento</label>
+                        <label for="exampleInputEmail1">Data de Nascimento *</label>
                         <input type="text" class="form-control" [specialCharacters]="[ '/' ]"  mask="d0/m0/0000" id="birthday1" formControlName="birthday1" (blur)="onBlurBirthDate($event)">
                     </div>
                 </div>
@@ -32,19 +32,19 @@
             <div class="row">
                 <div class="col-lg-4">
                     <div class="form-group">
-                        <label for="exampleInputEmail1">CPF</label>
+                        <label for="exampleInputEmail1">CPF *</label>
                         <input type="text" class="form-control" mask="000.000.000-00"  formControlName="cpf">
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Email</label>
+                        <label for="exampleInputEmail1">Email *</label>
                         <input type="text" class="form-control"   formControlName="email">
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Celular</label>
+                        <label for="exampleInputEmail1">Celular *</label>
                         <input type="text" class="form-control" mask="(00) 00000-0000"  formControlName="cellphone" id="cellphone" (blur)="onBlurCellPhone($event)">
                     </div>
                 </div>
@@ -55,22 +55,22 @@
                         <label for="exampleInputEmail1">Ministério Principal *</label>
                         <select class="form-control"  formControlName="mainMinistry">
                             <option value="discernimento">Em Discernimento</option>
-                            <option value="coordenadores">Coordenadores</option>
-                            <option value="musica-artes">Música & Artes</option>
-                            <option value="pregacao">Pregação</option>
-                            <option value="promocao-humana">Promoção Humana</option>
+                            <option value="coordenadores">Coordenação</option>
+                            <option value="comunicacao">Comunicação Social</option>
+                            <option value="criancas-adolescentes">Crianças e Adolescentes</option>
+                            <option value="cristo-sacerdote">Cristo Sacerdote</option>
+                            <option value="cura-libertacao">Cura e Libertação</option>
                             <option value="fe-politica">Fé e Politica</option>
                             <option value="formacao">Formação</option>
                             <option value="intercessao">Intercessão</option>
-                            <option value="cura-libertacao">Cura e Libertação</option>
-                            <option value="jovem">Jovem</option>
-                            <option value="criancas-adolescentes">Crianças e Adolescentes</option>
-                            <option value="comunicacao">Comunicação</option>
+                            <option value="musica-artes">Música & Artes</option>
+                            <option value="comunidades">Novas Comunidades</option>
                             <option value="familias">Para as Famílias</option>
-                            <option value="universidades">Universidades</option>
+                            <option value="pregacao">Pregação</option>
+                            <option value="promocao-humana">Promoção Humana</option>
                             <option value="religiosas">Para as Religiosas</option>
                             <option value="seminaristas">Seminaristas</option>
-                            <option value="cristo-sacerdote">Cristo Sacerdote</option>
+                            <option value="universidades">Universidades</option>
                           </select>
                     </div>
                 </div>
@@ -78,22 +78,23 @@
                     <div class="form-group">
                         <label for="exampleInputEmail1">Ministério Secundário </label>
                         <select class="form-control" formControlName="secondaryMinistry" >
-                            <option value="coordenadores">Coordenadores</option>
-                            <option value="musica-artes">Música & Artes</option>
-                            <option value="pregacao">Pregação</option>
-                            <option value="promocao-humana">Promoção Humana</option>
+                            <option value="discernimento">Em Discernimento</option>
+                            <option value="coordenadores">Coordenação</option>
+                            <option value="comunicacao">Comunicação Social</option>
+                            <option value="criancas-adolescentes">Crianças e Adolescentes</option>
+                            <option value="cristo-sacerdote">Cristo Sacerdote</option>
+                            <option value="cura-libertacao">Cura e Libertação</option>
                             <option value="fe-politica">Fé e Politica</option>
                             <option value="formacao">Formação</option>
                             <option value="intercessao">Intercessão</option>
-                            <option value="cura-libertacao">Cura e Libertação</option>
-                            <option value="jovem">Jovem</option>
-                            <option value="criancas-adolescentes">Crianças e Adolescentes</option>
-                            <option value="comunicacao">Comunicação</option>
+                            <option value="musica-artes">Música & Artes</option>
+                            <option value="comunidades">Novas Comunidades</option>
                             <option value="familias">Para as Famílias</option>
-                            <option value="universidades">Universidades</option>
+                            <option value="pregacao">Pregação</option>
+                            <option value="promocao-humana">Promoção Humana</option>
                             <option value="religiosas">Para as Religiosas</option>
                             <option value="seminaristas">Seminaristas</option>
-                            <option value="cristo-sacerdote">Cristo Sacerdote</option>
+                            <option value="universidades">Universidades</option>
                           </select>
                     </div>
                 </div>
