@@ -4,7 +4,7 @@
 
 export const environment = {
     production: false,
-    URL_API: 'https://localhost:7076'
+    URL_API: 'https://rcc-londrina.api-danweb-softwares.click',
 };
 
 /*

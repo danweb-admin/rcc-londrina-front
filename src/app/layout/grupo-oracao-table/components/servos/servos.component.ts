@@ -47,6 +47,8 @@ export class ServosComponent implements OnInit {
     }
 
     describeMinistry(key: string){
+            console.log(key);
+            
        return this.ministries.find(x => x.key == key).value
     }
 
@@ -69,7 +71,7 @@ export class ServosComponent implements OnInit {
             { key: "religiosas", value: "Para as Religiosas"},
             { key: "seminaristas", value: "Seminaristas"},
             { key: "cristo-sacerdote", value: "Cristo Sacerdote"},
-            { key: "em-discernimento", value: "Em Discernimento"},
+            { key: "discernimento", value: "Em Discernimento"},
         ]
     }
 }
