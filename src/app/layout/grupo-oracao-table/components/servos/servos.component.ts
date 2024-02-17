@@ -55,15 +55,15 @@ export class ServosComponent implements OnInit {
     loadMinistiries(){
         this.ministries = 
         [
-            { key: "coordenadores", value: "Coordenadação"},
+            { key: "coordenadores", value: "Coordenação"},
             { key: "musica-artes", value: "Música & Artes"},
             { key: "pregacao", value: "Pregação"},
             { key: "promocao-humana", value: "Promoção Humana"},
             { key: "fe-politica", value: "Fé e Politica"},
             { key: "formacao", value: "Formação"},
             { key: "intercessao", value: "Intercessão"},
-            { key: "cura-libertacao", value: "Cura e Libertação"},
-            { key: "comunidades", value: "Novas Comunidades"},
+            { key: "cura-libertacao", value: "Oração Cura e Libertação"},
+            { key: "jovem", value: "Jovem"},
             { key: "criancas-adolescentes", value: "Crianças e Adolescentes"},
             { key: "comunicacao", value: "Comunicação"},
             { key: "familias", value: "Para as Famílias"},
