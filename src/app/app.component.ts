@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UsuarioService } from './shared/services/usuario.service';
 
 
 @Component({
@@ -9,11 +10,13 @@ import { Router } from '@angular/router';
 })
 export class AppComponent implements OnInit{
 
-    constructor(private router: Router) {
+    constructor(private userService: UsuarioService) {
       
     }
 
     ngOnInit() {
-      // this.router.navigate(['/login']);
+      this.userService.healthy().subscribe(() => {
+        console.log('healthy');
+      });
     }
 }

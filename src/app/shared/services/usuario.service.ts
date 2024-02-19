@@ -17,6 +17,10 @@ export class UsuarioService {
 
   }
 
+  healthy(): Observable<any> {
+    return this.http.get(`${environment.URL_API}${URL_USER}/healthy`);
+  }
+
   loadUsers(ativo: boolean, search: string): Observable<User[]> {
     
     return this.http.get(`${environment.URL_API}${URL_USER}?search=${search}`)
