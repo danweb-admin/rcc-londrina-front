@@ -30,7 +30,8 @@ export class ServosComponent implements OnInit {
 
     loadServos(): void{
         this.servoService.loadServosByGrupoOracao(this.grupoOracao.id).subscribe((resp: Servo[]) => {
-            this.servos = resp;            
+            this.servos = resp;  
+            
         })
     }
 
@@ -71,7 +72,7 @@ export class ServosComponent implements OnInit {
             { key: "religiosas", value: "Para as Religiosas"},
             { key: "seminaristas", value: "Seminaristas"},
             { key: "cristo-sacerdote", value: "Cristo Sacerdote"},
-            { key: "discernimento", value: "Em Discernimento"},
+            { key: "em-discernimento", value: "Em Discernimento"},
         ]
     }
 }
