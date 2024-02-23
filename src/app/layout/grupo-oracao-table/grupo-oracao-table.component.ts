@@ -7,6 +7,7 @@ import { NgxNavigationWithDataComponent } from 'ngx-navigation-with-data';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { CustomPaginator } from '../../shared/shared';
+import { debounceTime, distinctUntilChanged, Subject } from 'rxjs';
 
 @Component({
     selector: 'app-grupo-oracao-table',
@@ -20,6 +21,8 @@ export class GrupoOracaoTableComponent implements OnInit {
     public dataSource: MatTableDataSource<GrupoOracao> = new MatTableDataSource<GrupoOracao>();
     @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
     @ViewChild('inputSearch') inputSearch: ElementRef;
+    modelChanged: Subject<string> = new Subject<string>();
+
 
     constructor(private router: Router,
                 public navCtrl: NgxNavigationWithDataComponent,
@@ -27,16 +30,19 @@ export class GrupoOracaoTableComponent implements OnInit {
 
     ngOnInit() {
         this.loadGrupos('');
+        this.modelChanged.pipe(
+            debounceTime(500), 
+            distinctUntilChanged())
+            .subscribe((search: any )=> {
+                if (search.target.value.length > 2){
+                    this.loadGrupos(search.target.value)
+                }
+            }
+            );
     }
 
-    applyFilter(event: Event): void {
-        const inputValue = this.inputSearch.nativeElement.value;
-        const length = inputValue.length;
-
-        if (length > 2) {
-            const filterValue = (event.target as HTMLInputElement).value;
-            this.loadGrupos(filterValue);
-        }
+    changed(text: string) {
+        this.modelChanged.next(text);
     }
 
     closeFilterInput(): void {

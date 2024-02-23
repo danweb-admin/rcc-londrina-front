@@ -10,7 +10,7 @@
                 <div class="grupo-oracao-table-wrapper__icon-wrapper">
                   <i class="fa fa-fw fa-search"></i>&nbsp;
                 </div>
-                <input class="grupo-oracao-table-wrapper__search-input" #inputSearch (keyup)="applyFilter($event)">
+                <input class="grupo-oracao-table-wrapper__search-input" #inputSearch (keyup)="changed($event)">
                 <button class="btn"><i class="fa fa-close" (click)="closeFilterInput()"></i></button>
                 <button class="btn" (click)="newGrupoOracao()"><i class="fa fa-plus"></i></button>
               </div>
