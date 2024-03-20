@@ -44,8 +44,7 @@
                                           <td (click)="openDialog(temp)">{{temp.email}}</td>
                                           <td (click)="openDialog(temp)">{{temp.cellPhone}}</td>
                                           <td>
-                                            <i *ngIf="temp.checked" class="fa fa-check-square fa-fw green"></i>
-                                            <i *ngIf="!temp.checked" class="fa fa-window-close fa-fw red"></i>
+                                            {{temp.checked ? 'Sim' : 'Não'}}
                                           </td>
                                           <td>
                                             <button *ngIf="!temp.checked" class="border-0" (click)="checked(temp.id, temp)">
