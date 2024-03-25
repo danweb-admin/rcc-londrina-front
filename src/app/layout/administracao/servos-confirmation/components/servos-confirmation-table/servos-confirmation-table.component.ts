@@ -60,6 +60,7 @@ export class ServosConfirmationTableComponent implements OnInit {
             console.log(res);
             
             item.checked = true;
+            item.birthday = res.birthday;
         },dismiss=>{
             console.log("Cross Button",dismiss)
         })

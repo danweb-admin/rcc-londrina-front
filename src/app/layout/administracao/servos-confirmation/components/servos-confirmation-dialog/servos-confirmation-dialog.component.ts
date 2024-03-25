@@ -31,7 +31,7 @@ import { ValidateService } from '../../../../../shared/services/validate-service
       this.form = this.formBuilder.group({
         id:  [this.servo?.id || ''],
         name: [this.servo?.name || '', Validators.required],
-        birthday1: [this.formatDate(this.servo?.birthday) || '', Validators.required],
+        birthday: [this.servo?.birthday || '', Validators.required],
         cpf: [this.servo?.cpf || '', Validators.required],
         email: [this.servo?.email || '', Validators.required],
         cellphone: [this.servo?.cellPhone || '', Validators.required],
@@ -47,6 +47,7 @@ import { ValidateService } from '../../../../../shared/services/validate-service
 
     onSubmit(){
       let cpf = this.form.value.cpf;
+      
       if (!this.validateService.validarCpf(cpf)){
         this.toastr.warning("CPF Inválido.")
         return;

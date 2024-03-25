@@ -39,7 +39,7 @@
                                         <tr class="table-row" *ngFor="let temp of item.servosTemp" >
                                           <td (click)="openDialog(temp)">{{temp.createdAt | date: 'd/M/yy, h:mm a'}}</td>
                                           <td (click)="openDialog(temp)">{{temp.name}}</td>
-                                          <td (click)="openDialog(temp)">{{temp.birthday | date: 'dd/MM/yyyy'}}</td>
+                                          <td (click)="openDialog(temp)">{{temp.birthday}}</td>
                                           <td (click)="openDialog(temp)">{{temp.cpf}}</td>
                                           <td (click)="openDialog(temp)">{{temp.email}}</td>
                                           <td (click)="openDialog(temp)">{{temp.cellPhone}}</td>
