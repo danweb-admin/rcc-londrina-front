@@ -13,13 +13,13 @@
                 <div class="col-lg-8">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Nome *</label>
-                        <input type="text" class="form-control" formControlName="name" oninput="this.value = this.value.toUpperCase()">
+                        <input type="text" disabled class="form-control" formControlName="name" oninput="this.value = this.value.toUpperCase()">
                     </div>
                 </div>
                 <div class="col-lg-3">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Data de Nascimento *</label>
-                        <input type="text" class="form-control" [specialCharacters]="[ '/' ]"  mask="d0/m0/0000" id="birthday1" formControlName="birthday1" (blur)="onBlurBirthDate($event)">
+                        <input type="text" disabled class="form-control" [specialCharacters]="[ '/' ]"  mask="d0/m0/0000" id="birthday1" formControlName="birthday1" (blur)="onBlurBirthDate($event)">
                     </div>
                 </div>
                 <div class="col-lg-1">
@@ -33,7 +33,7 @@
                 <div class="col-lg-4">
                     <div class="form-group">
                         <label for="exampleInputEmail1">CPF *</label>
-                        <input type="text" class="form-control" mask="000.000.000-00"  formControlName="cpf">
+                        <input type="text" class="form-control" mask="000.000.000-00" disabled formControlName="cpf">
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -142,5 +142,6 @@
         
     </div>
     <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="onSubmit()" [disabled]="!form.valid">Atualizar</button>
         <button type="button" class="btn btn-danger" (click)="activeModal.close('sair')">Cancelar</button>
     </div>
