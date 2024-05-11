@@ -66,7 +66,7 @@ export class ServosComponent implements OnInit {
             { key: "cura-libertacao", value: "Oração Cura e Libertação"},
             { key: "jovem", value: "Jovem"},
             { key: "criancas-adolescentes", value: "Crianças e Adolescentes"},
-            { key: "comunicacao", value: "Comunicação"},
+            { key: "comunicacao-social", value: "Comunicação"},
             { key: "familias", value: "Para as Famílias"},
             { key: "universidades", value: "Universidades"},
             { key: "religiosas", value: "Para as Religiosas"},
