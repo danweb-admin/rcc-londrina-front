@@ -39,6 +39,14 @@ export class GrupoOracaoService {
     }));
   }
 
+  importCSV(grupoOracaoId: string): Observable<GrupoOracao>{
+    return this.http.put(`${environment.URL_API}${URL_GRUPO_ORACAO}/import-csv/${grupoOracaoId}`,grupoOracaoId)
+    .pipe(map((resp: GrupoOracao) => {
+      debugger
+      return resp;
+    }));
+  }
+
   update(GrupoOracao: GrupoOracao): Observable<GrupoOracao>{
     return this.http.put(`${environment.URL_API}${URL_GRUPO_ORACAO}/${GrupoOracao.id}`,GrupoOracao)
     .pipe(map((resp: GrupoOracao) => {

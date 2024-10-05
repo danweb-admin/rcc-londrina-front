@@ -19,4 +19,6 @@ export interface GrupoOracao {
     numberOfParticipants: number;
     createdAt: string;
     updatedAt: string;
+    formsUrl: string;
+    csvUrl: string;
 }

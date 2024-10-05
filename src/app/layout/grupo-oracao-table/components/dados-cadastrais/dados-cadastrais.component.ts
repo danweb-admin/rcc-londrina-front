@@ -19,6 +19,7 @@ export class DadosCadastraisComponent implements OnInit {
     form: FormGroup;
     isAddMode: boolean = true;
     id: string;
+    user: string;
     decanatos: Decanato[] = [];
     paroquias: Paroquia[] = [];
     grupoOracao: GrupoOracao;
@@ -39,6 +40,8 @@ export class DadosCadastraisComponent implements OnInit {
     ngOnInit(): void {
         this.initializeForm();
         this.loadParoquias();
+        this.user = localStorage.getItem('user');
+        
     }
 
     onChange(value) {
@@ -87,6 +90,8 @@ export class DadosCadastraisComponent implements OnInit {
           numberOfParticipants: [0],
           createdAt: [this.grupoOracao?.createdAt || new Date()],
           updatedAt: [ this.grupoOracao?.updatedAt],
+          formsUrl: [this.grupoOracao?.formsUrl || ''],
+          csvUrl: [this.grupoOracao?.csvUrl || '']
         });
           
     }
@@ -101,6 +106,19 @@ export class DadosCadastraisComponent implements OnInit {
       let day = date.substring(8,10);
 
       return `${day}/${month}/${year}`;
+    }
+
+    importCSV(){
+      let grupoOracaoId = this.form.value.id;
+      this.grupoOracaoService.importCSV(grupoOracaoId).subscribe((resp: GrupoOracao) => {
+        this.toastr.success('Arquivo CSV importado com sucesso.');
+        this.navCtrl.navigate('grupo-oracao');            
+      },
+      (error: any) =>{
+        console.log(error);
+        this.toastr.warning(error.error?.message)
+      });
+
     }
 
     saveGO(){
