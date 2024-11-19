@@ -13,6 +13,10 @@
             <i class="fa fa-users"></i>&nbsp;
             <span>{{ 'Confirmação Servos' }}</span>
         </a>
+        <a [routerLink]="['/lista-servos']" class="list-group-item" *ngIf="isAdmin == 'true'">
+            <i class="fa fa-users"></i>&nbsp;
+            <span>{{ 'Lista de Servos' }}</span>
+        </a>
         <div class="nested-menu" *ngIf="isAdmin == 'true'">
             <a (click)="addExpandClass('pages')" class="list-group-item">
                 <i class="fa fa-plus"></i>&nbsp;

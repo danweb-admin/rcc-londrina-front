@@ -1,0 +1,71 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card card-default">
+      <!-- /.card-header -->
+      <div class="card-header">
+        <div style="float: left;">
+          <label for="filterGrupo">Grupo:</label>
+          <select id="filterGrupo" [(ngModel)]="filters.grupo" (change)="applyFilters()">
+            <option value="">Todos</option>
+            <option *ngFor="let option of filterOptions.grupo" [value]="option">
+              {{ option }}
+            </option>
+          </select>
+        </div>
+        <div style="float: left;">
+          <label for="filterStatus">Ministério:</label>
+          <select id="filterStatus" [(ngModel)]="filters.ministerio" (change)="applyFilters()">
+            <option value="">Todos</option>
+            <option *ngFor="let option of filterOptions.ministerio" [value]="option">
+              {{ option }}
+            </option>
+          </select>
+        </div>
+        <div style="float: left;">
+          <label for="filterStatus">Decanato:</label>
+          <select id="filterStatus" [(ngModel)]="filters.decanato" (change)="applyFilters()">
+            <option value="">Todos</option>
+            <option *ngFor="let option of filterOptions.decanato" [value]="option">
+              {{ option }}
+            </option>
+          </select>
+        </div>
+        
+      </div>
+      
+      <!-- /.card-body -->
+      <div class="card-body">
+        <div class="row">
+          
+        </div>
+        <div class="row">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Grupo de Oração</th>
+                <th scope="col">Decanato</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Min. Principal</th>
+                <th scope="col">Min. Secundário</th>
+                <th scope="col">Validado</th>
+                
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of filteredDataSource"  >
+                <td>{{item.grupoOracao.name}}</td>
+                <td>{{item.grupoOracao.paroquiaCapela.decanatoSetor.name}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.mainMinistry}}</td>
+                <td>{{item.secondaryMinistry}}</td>
+                <td>{{item.checked ? 'Sim' : 'Não'}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!-- /.card -->
+  </div>
+</div>

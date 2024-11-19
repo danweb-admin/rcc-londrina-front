@@ -16,6 +16,13 @@ export class ServoTempService {
 
   }
 
+  loadServos(): Observable<Servo[]> {
+    return this.http.get(`${environment.URL_API}${URL_SERVO}/load-servos`)
+    .pipe(map((resp: Servo[]) => {
+      return resp;
+    }));
+  }
+
   loadServosByGrupoOracao(grupoOracaoId: string): Observable<Servo[]> {
     return this.http.get(`${environment.URL_API}${URL_SERVO}?grupoOracaoId=${grupoOracaoId}`)
     .pipe(map((resp: Servo[]) => {

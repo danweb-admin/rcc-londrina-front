@@ -42,7 +42,6 @@ export class GrupoOracaoService {
   importCSV(grupoOracaoId: string): Observable<GrupoOracao>{
     return this.http.put(`${environment.URL_API}${URL_GRUPO_ORACAO}/import-csv/${grupoOracaoId}`,grupoOracaoId)
     .pipe(map((resp: GrupoOracao) => {
-      debugger
       return resp;
     }));
   }

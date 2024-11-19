@@ -1,3 +1,5 @@
+import { Paroquia } from "./paroquia";
+
 export interface GrupoOracao {
     id: string;
     name: string;
@@ -21,4 +23,5 @@ export interface GrupoOracao {
     updatedAt: string;
     formsUrl: string;
     csvUrl: string;
+    paroquiaCapela: Paroquia;
 }

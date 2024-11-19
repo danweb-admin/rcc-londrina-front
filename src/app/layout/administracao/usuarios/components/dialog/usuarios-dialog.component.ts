@@ -47,7 +47,6 @@ import { UsuarioService } from '../../../../../shared/services/usuario.service';
         if (this.user != null){
             this.isAddMode = false;
         }
-        
         this.form = this.formBuilder.group({
           id:  [this.user?.id || ''],
           name: [this.user?.name || '', Validators.required],
@@ -59,6 +58,7 @@ import { UsuarioService } from '../../../../../shared/services/usuario.service';
           grupoOracaoId: [this.user?.grupoOracaoId || '',],
           updatedAt: [ null],
         });
+        
     }
 
     isAdministrator(){
@@ -70,11 +70,14 @@ import { UsuarioService } from '../../../../../shared/services/usuario.service';
       }else{
         this.administrator.nativeElement.checked = false;
       }
+      
     }
 
     change(event){
+      
       let isChecked = event.currentTarget.checked;
       this.enableFields(isChecked);
+      event.preventDefault();
     }
 
     enableFields(isChecked){
@@ -88,6 +91,7 @@ import { UsuarioService } from '../../../../../shared/services/usuario.service';
         this.decanato.nativeElement.disabled = false;
         this.grupoOracao.nativeElement.disabled = false;
       }
+      
     }
 
     loadDecanatos(){
