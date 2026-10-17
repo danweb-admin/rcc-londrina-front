@@ -1,0 +1,220 @@
+
+<div class="container">
+    <div class="form-card">
+        
+        <div *ngIf="carregando" class="mensagem">
+            Carregando formulário...
+        </div>
+        
+        <div *ngIf="!carregando && erro && !grupoOracao"
+        class="erro">
+        {{ erro }}
+    </div>
+    
+    <div *ngIf="enviado" class="sucesso">
+        <h2>Cadastro enviado com sucesso!</h2>
+        <p>Seus dados foram enviados para validação do coordenador.</p>
+    </div>
+    
+    <form *ngIf="!carregando && grupoOracao && !enviado"
+    [formGroup]="form"
+    (ngSubmit)="enviar()">
+    
+    <h1>Cadastro de Servo</h1>
+    
+    <h3 class="grupo">
+        Grupo de Oração:
+        <strong>{{ grupoOracao }}</strong>
+    </h3>
+    
+    <h6 class="grupo">
+        Paróquia:
+        <strong>{{ paroquia }}</strong>
+    </h6>
+    
+    <h6 class="grupo">
+        Decanato:
+        <strong>{{ decanato }}</strong>
+    </h6>
+    
+    <div class="campo">
+        <label>Nome completo *</label>
+        <input type="text"
+        formControlName="name"
+        autocomplete="name" />
+        <small *ngIf="form.get('name')?.touched &&
+        form.get('name')?.invalid">
+        Informe seu nome completo.
+    </small>
+</div>
+
+<div class="campo">
+    <label>Data de nascimento *</label>
+    <input type="input" formControlName="birthday" mask="d0/M0/0000" />
+
+    <small *ngIf="form.get('birthday')?.touched &&
+                  form.get('birthday')?.invalid">
+        Informe sua data de nascimento.
+    </small>
+</div>
+
+<div *ngIf="idade !== null" class="aviso-idade">
+    <p *ngIf="idade >= 16">
+        Você tem {{ idade }} anos.
+    </p>
+
+    <p *ngIf="idade < 16">
+        Você tem {{ idade }} anos. Por ser menor de 16 anos,
+        informe os dados do seu responsável legal.
+    </p>
+</div>
+
+<div *ngIf="idade !== null && idade < 16" class="dados-responsavel">
+    <h3>Dados do responsável legal</h3>
+
+    <div class="campo">
+        <label>Nome completo do responsável *</label>
+        <input
+            type="text"
+            formControlName="responsavelNome"
+            autocomplete="name" />
+
+        <small *ngIf="form.get('responsavelNome')?.touched &&
+                      form.get('responsavelNome')?.invalid">
+            Informe o nome completo do responsável.
+        </small>
+    </div>
+
+    <div class="campo">
+        <label>Telefone do responsável *</label>
+        <input
+            type="tel"
+            formControlName="responsavelTelefone"
+            autocomplete="tel"
+            placeholder="(43) 99999-9999"
+            mask="(00) 0 0000-0000" />
+
+        <small *ngIf="form.get('responsavelTelefone')?.touched &&
+                      form.get('responsavelTelefone')?.invalid">
+            Informe o telefone do responsável.
+        </small>
+    </div>
+
+    <div class="campo">
+        <label>CPF do responsável *</label>
+        <input
+            type="text"
+            formControlName="responsavelCpf"
+            inputmode="numeric"
+            placeholder="000.000.000-00"
+            mask="000.000.000-00" />
+
+        <small *ngIf="form.get('responsavelCpf')?.touched &&
+                      form.get('responsavelCpf')?.invalid">
+            Informe o CPF do responsável.
+        </small>
+    </div>
+</div>
+
+
+<div class="campo">
+    <label>CPF *</label>
+    <input type="text"
+    formControlName="cpf"
+    inputmode="numeric"
+    placeholder="000.000.000-00" mask="000.000.000-00"/>
+</div>
+
+<div class="campo">
+    <label>E-mail *</label>
+    <input type="email"
+    formControlName="email"
+    autocomplete="email" />
+</div>
+
+<div class="campo">
+    <label>Celular *</label>
+    <input type="tel"
+    formControlName="cellPhone"
+    autocomplete="tel"
+    placeholder="(43) 99999-9999"
+    mask="(00) 0 0000-0000" />
+</div>
+
+<div class="campo">
+    <label>Ministério principal *</label>
+    <select class="form-control"  formControlName="mainMinistry">
+        <option value="discernimento">Em Discernimento</option>
+        <option value="coordenadores">Coordenação</option>
+        <option value="comunicacao-social">Comunicação Social</option>
+        <option value="criancas-adolescentes">Crianças e Adolescentes</option>
+        <option value="cristo-sacerdote">Cristo Sacerdote</option>
+        <option value="cura-libertacao">Cura e Libertação</option>
+        <option value="fe-politica">Fé e Politica</option>
+        <option value="formacao">Formação</option>
+        <option value="intercessao">Intercessão</option>
+        <option value="musica-artes">Música & Artes</option>
+        <option value="comunidades">Novas Comunidades</option>
+        <option value="familias">Para as Famílias</option>
+        <option value="pregacao">Pregação</option>
+        <option value="promocao-humana">Promoção Humana</option>
+        <option value="religiosas">Religiosas</option>
+        <option value="seminaristas">Seminaristas</option>
+        <option value="universidades">Universidades</option>
+    </select>
+</div>
+
+<div class="campo">
+    <label>Ministério secundário</label>
+    <select class="form-control" formControlName="secondaryMinistry" >
+        <option value="discernimento">Em Discernimento</option>
+        <option value="coordenadores">Coordenação</option>
+        <option value="comunicacao-social">Comunicação Social</option>
+        <option value="criancas-adolescentes">Crianças e Adolescentes</option>
+        <option value="cristo-sacerdote">Cristo Sacerdote</option>
+        <option value="cura-libertacao">Cura e Libertação</option>
+        <option value="fe-politica">Fé e Politica</option>
+        <option value="formacao">Formação</option>
+        <option value="intercessao">Intercessão</option>
+        <option value="musica-artes">Música & Artes</option>
+        <option value="comunidades">Novas Comunidades</option>
+        <option value="familias">Para as Famílias</option>
+        <option value="pregacao">Pregação</option>
+        <option value="promocao-humana">Promoção Humana</option>
+        <option value="religiosas">Religiosas</option>
+        <option value="seminaristas">Seminaristas</option>
+        <option value="universidades">Universidades</option>
+    </select>
+</div>
+
+<label class="consentimento">
+    <input type="checkbox"
+    formControlName="aceitouConsentimento" />
+    <span>
+        A Renovação Carismática Católica da Arquidiocese de Londrina-PR  (RCC Londrina-PR), a fim de facilitar o cadastro dos servos integrantes do movimento em eventos promovidos por esta e manter um cadastro atualizado dos servos integrantes do movimento, veicula o presente formulário a fim de coletar os seus dados pessoais.
+        
+        Buscando atender as exigências legais da Lei Geral de Proteção de Dados (LGPD) – Lei Nº 13.709/2018, a RCC Londrina-PR informa que através deste formulário, você demonstrará seu consentimento com o tratamento dos seus dados pessoais, ao clicar no botão “aceito” será realizada a coleta, armazenamento e inserção das informações pessoais no banco de dados que será gerenciado pela RCC Londrina-PR.
+        
+        Firmando um compromisso de transparência, a RCC Londrina-PR informa que os dados pessoais aqui coletados serão utilizados com a finalidade de inserção em banco de dados, para controle e histórico dos integrantes do movimento RCC na Arquidiocese de Londrina-PR, bem como para facilitar o cadastro dos servos em eventos realizados pela RCC Londrina-PR.
+        
+        Qualquer alteração nas finalidades acima descritas será informada e seus dados somente serão utilizados a partir de novo consentimento.
+        
+        Os responsáveis dos menores de 16 (dezesseis) anos deverão assinalar o consentimento em nome do menor que é servo do movimento.
+        
+        Dúvidas, esclarecimentos ou retificações poderão ser feitas através do contato (43) 3324-6486
+    </span>
+</label>
+
+<div *ngIf="erro" class="erro">
+    {{ erro }}
+</div>
+
+<button type="submit" [disabled]="enviando">
+    {{ enviando ? 'Enviando...' : 'Enviar cadastro' }}
+</button>
+
+<p class="obrigatorio">* Campos obrigatórios</p>
+</form>
+
+</div>
+</div>

@@ -14,6 +14,7 @@ import { InterceptorModule } from './shared/interceptor/interceptor.module';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { NgxNavigationWithDataComponent } from 'ngx-navigation-with-data';
+import { CadastroServoPublicoComponent } from './pages/cadastro-servo-publico/cadastro-servo-publico.component';
 
 
 @NgModule({
@@ -34,7 +35,7 @@ import { NgxNavigationWithDataComponent } from 'ngx-navigation-with-data';
             preventDuplicates: true,
         }),
     ],
-    declarations: [AppComponent,
+    declarations: [AppComponent, CadastroServoPublicoComponent,
     ],
     providers: [AuthGuard, NgxNavigationWithDataComponent],
     bootstrap: [AppComponent]
